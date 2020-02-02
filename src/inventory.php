@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" query="IE=edge">
 	<title>Inventory | Smartphone Depot</title>
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
-	<link rel="icon" href="" type="image/x-icon"/>
+	<link rel="icon" href="images/favicon.png" type="image/x-icon">
 </head>
 <body>
 	<header>
