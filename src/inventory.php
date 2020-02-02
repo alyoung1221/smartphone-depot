@@ -12,7 +12,7 @@
 	<header>
 		<nav>
 			<ul>
-				<li><a href="http://helios.vse.gmu.edu/~ayoung39/Smartphone%20Depot"><img src="images/logo.png" width="200px"></a></li>
+				<li><a href="index.php"><img src="images/logo.png" width="200px"></a></li>
 				<li><a href="inventory.php">Inventory</a></li>
 				<li><a href="#our-process">Our Process</a></li>
 				<li><a href="account.html">Account</a></li>
