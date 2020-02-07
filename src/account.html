@@ -13,9 +13,9 @@
 		<nav>
 			<ul>
 				<li><a href="index.php"><img src="images/logo.png" width="150px"></a></li>
-				<li><a href="inventory.php">Inventory</a></li>
+				<li><a href="inventory.php">Inventory</a></li>				
+				<li><a href="products.html">Products</a></li>
 				<li><a href="our-process.html">Our Process</a></li>
-				<li><a href="account.html">Account</a></li>
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
 		</nav>	
