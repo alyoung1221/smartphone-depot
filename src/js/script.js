@@ -1,32 +1,50 @@
 function search() {
 	var tr = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+	var td; 
 	var found = false; 
-
+	
 	for (var x = 0; x < tr.length; x++) {
 		for (var y = 0; y < tr[x].getElementsByTagName("td").length; y++) {
-			if (tr[x].getElementsByTagName("td")[y].textContent.toUpperCase().indexOf(document.getElementById("search").value.toUpperCase()) > -1) {
-				found = true;
-			}     
+			td = tr[x].getElementsByTagName("td")[y].innerContent || tr[x].getElementsByTagName("td")[y].textContent;
+ 			
+			if (td.startsWith("$")) {
+				td = td.substring(1);
+			}
+			if (!(isNaN($("#search").val()))) {
+				if (td === $("#search").val()) {
+					found = true;
+				}
+			}
+			else {
+				if (tr[x].getElementsByTagName("td")[y].textContent.toUpperCase().indexOf(document.getElementById("search").value.toUpperCase()) > -1) {
+					found = true;
+				}     
+			}
 		}
 		if (found) {
 			tr[x].style.display = "block";
 			found = false; 
-			console.log("true");
 		}
 		else {
 			tr[x].style.display = "none";
 		}
 	}
 	
+	if ($("#search").val() === "") {
+		displayTable(tr);
+	}
 	$("#clear").click(function() {
-		for (var x = 0; x < tr.length; x++) {
-			for (var y = 0; y < tr[x].getElementsByTagName("td").length; y++) {
-				tr[x].style.display = "block";
-			}
-		}      
+		displayTable(tr);    
 	});
 }
 
+function displayTable(tr) {
+	for (var x = 0; x < tr.length; x++) {
+		for (var y = 0; y < tr[x].getElementsByTagName("td").length; y++) {
+			tr[x].style.display = "block";
+		}
+	} 
+}
 function sort(n) {
 	var switchcount = 0;
 	var switching = true;

@@ -89,7 +89,13 @@
 	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	<script src="js/script.js"></script>
 	<script type="text/javascript">
-		$("#search").keyup(search);
+		var timeout = null; 
+
+		$("#search").keyup(function() {
+			clearTimeout(timeout);
+
+    			timeout = setTimeout(search, 500);
+		});
 
 		var sortButtons = document.getElementsByClassName("fa-sort");
 		
