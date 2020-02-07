@@ -9,17 +9,9 @@
 	<link rel="icon" href="images/favicon.png" type="image/x-icon">
 </head>
 <body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="index.php"><img src="images/logo.png" width="150px"></a></li>
-				<li><a href="inventory.php">Inventory</a></li>				
-				<li><a href="products.html">Products</a></li>
-				<li><a href="our-process.html">Our Process</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-		</nav>	
-	</header>
+	<?php 
+		readfile("header.html");
+	?>
 	<main>
 		<form id="searchbar">
 			<input type="text" id="search" placeholder="Search..." title="Search phones" required>
@@ -41,21 +33,6 @@
 		if ($connection) {
 			if (mysqli_query($connection, "SELECT * FROM PHONES")) {				
 				$query = "SELECT PHONE_MODEL, PHONE_PRICE, PHONE_STATUS, PHONE_QUANTITY FROM PHONES";
-				
-				if (isset($_GET['category'])) {
-					if ($_GET['category'] == 'model') {
-						$query .= " ORDER BY PHONE_MODEL";
-					}
-					elseif ($_GET['category'] == 'price') {
-						$query .= " ORDER BY PHONE_PRICE";
-					}
-					elseif ($_GET['category'] == 'status') {
-						$query .= " ORDER BY PHONE_STATUS";
-					}
-					elseif($_GET['category'] == 'quantity') {
-						$query .= " ORDER BY PHONE_QUANTITY";
-					}
-				}
 				$content = mysqli_query($connection, $query);
 				$phone = mysqli_fetch_assoc($content);
 				$products = "\t\t<tbody>\n";
@@ -81,9 +58,9 @@
 		mysqli_close($connection);
 	?>
 	</main>
-	<footer>
-		&copy;2019 Smartphone Depot.
-	</footer>
+	<?php 
+		readfile("footer.html");
+	?>
 	<script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -93,8 +70,7 @@
 
 		$("#search").keyup(function() {
 			clearTimeout(timeout);
-
-    			timeout = setTimeout(search, 500);
+			timeout = setTimeout(search, 500);
 		});
 
 		var sortButtons = document.getElementsByClassName("fa-sort");
