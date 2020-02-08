@@ -19,9 +19,8 @@
 	?>
 	<script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	<script src="js/script.js"></script>
-	<script type="text/javascript">
+	<script>
 	</script>
 </body>
 </html>
