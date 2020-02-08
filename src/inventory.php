@@ -14,8 +14,7 @@
 	?>
 	<main>
 		<form id="searchbar">
-			<input type="text" id="search" placeholder="Search. . ." required>
-			<input type="reset" value="&times;" id="clear">
+			<input type="search" id="search" placeholder="Search. . ." required>
 		</form>
 		<table>
 			<thead>
@@ -33,13 +32,14 @@
 			
 		if ($connection) {
 			if (mysqli_query($connection, "SELECT * FROM PHONES")) {				
-				$query = "SELECT PHONE_MODEL, PHONE_PRICE, PHONE_STATUS, PHONE_QUANTITY FROM PHONES";
+				$query = "SELECT PHONE_MODEL, ROUND(PHONE_PRICE, 0) AS PHONE_PRICE, PHONE_STATUS, PHONE_QUANTITY FROM PHONES";
 				$content = mysqli_query($connection, $query);
 				$phone = mysqli_fetch_assoc($content);
+				$products = ""; 
 				
 				while ($phone) {
 					$products .= "\t\t\t\t<tr>\n";
-					$products .= "\t\t\t\t\t<td>$phone[PHONE_MODEL]</td>\n";
+					$products .= "\t\t\t\t\t<td><a href='https://smartphone-depot.com/product/iphone-6-2/'>$phone[PHONE_MODEL]</a></td>\n";
 					$products .= "\t\t\t\t\t<td>$$phone[PHONE_PRICE]</td>\n";
 					$products .= "\t\t\t\t\t<td>$phone[PHONE_STATUS]</td>\n";
 					$products .= "\t\t\t\t\t<td>$phone[PHONE_QUANTITY]</td>\n";
@@ -65,7 +65,9 @@
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	<script src="js/script.js"></script>
-	<script type="text/javascript">
+	<script>
+		$("nav a:nth-of-type(3)").addClass("active");
+		
 		var timeout = null; 
 
 		$("#search").keyup(function() {
@@ -73,6 +75,13 @@
 			timeout = setTimeout(search, 500);
 			$("#clear").css("color", "#808080");
 		});
+		
+		$("#search").on("input", function() {
+			if ($("#search").val() === "") {
+				displayTable();
+			}
+		});
+	
 		var sortButtons = document.getElementsByClassName("fa-sort");
 		
 		for (var i = 0; i < sortButtons.length; i++) {
