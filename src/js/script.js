@@ -1,3 +1,24 @@
+window.addEventListener("scroll", stickyHeader);
+
+function stickyHeader() {
+	if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+		$("header").attr("id", "sticky"); 
+		
+		if ($("#search").val()) {
+			$("#clear").css("color", "transparent");
+		}
+	} 
+	else {	
+		$("header").attr("id", "");
+		
+		if ($("#search").val()) {
+			$("#clear").css("color", "#808080");	
+		}			
+	}
+}
+$("#search").keyup(function() {
+	$("#clear").css("color", "#808080");
+});
 function search() {
 	var tr = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
 	var td; 
@@ -32,9 +53,11 @@ function search() {
 	
 	if ($("#search").val() === "") {
 		displayTable(tr);
+		$("#clear").css("color", "transparent");
 	}
 	$("#clear").click(function() {
-		displayTable(tr);    
+		displayTable(tr);   
+		$("#clear").css("color", "transparent");		
 	});
 }
 
@@ -45,6 +68,20 @@ function displayTable(tr) {
 		}
 	} 
 }
+
+function filterPrice() {
+	var tr = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+	
+	for (var i = 0; i < tr.length; i++) {
+		if (parseInt(tr[i].getElementsByTagName("td")[1].innerHTML.substring(1)) <= parseInt($("#range").val())) {
+			tr[i].style.display = "block";
+		}
+		else {
+			tr[i].style.display = "none";
+		}
+	}
+}
+
 function sort(n) {
 	var switchcount = 0;
 	var switching = true;
@@ -52,12 +89,12 @@ function sort(n) {
 	
 	while (switching) {
 		switching = false;
-		var rows = document.getElementsByTagName("table")[0].rows;
+		var tr = document.getElementsByTagName("table")[0].rows;
 		
-		for (var i = 1; i < rows.length - 1; i++) {
+		for (var i = 1; i < tr.length - 1; i++) {
 			var shouldSwitch = false;
-			var x = rows[i].getElementsByTagName("td")[n];
-			var y = rows[i + 1].getElementsByTagName("td")[n];
+			var x = tr[i].getElementsByTagName("td")[n];
+			var y = tr[i + 1].getElementsByTagName("td")[n];
 			  
 			if (dir == "asc") {
 				if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
@@ -74,7 +111,7 @@ function sort(n) {
 		}
 		
 		if (shouldSwitch) {
-			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+			tr[i].parentNode.insertBefore(tr[i + 1], tr[i]);
 			switching = true;
 			switchcount++;
 		} 
@@ -96,10 +133,6 @@ function sort(n) {
 	for (var i = 0; i < document.getElementsByClassName("fas").length; i++) {
 		if (i != n) {
 			document.getElementsByClassName("fas")[i].className = "fas fa-sort";
-			document.getElementsByClassName("fas")[i].style.color = "#FFF";
-		}
-		else {
-			document.getElementsByClassName("fas")[n].style.color = "#313131";
 		}
 	}
 }
