@@ -3,22 +3,13 @@ window.addEventListener("scroll", stickyHeader);
 function stickyHeader() {
 	if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
 		$("header").attr("id", "sticky"); 
-		
-		if ($("#search").val()) {
-			$("#clear").css("color", "transparent");
-		}
+		$("#searchbar").addClass("hidden");
 	} 
 	else {	
 		$("header").attr("id", "");
-		
-		if ($("#search").val()) {
-			$("#clear").css("color", "#808080");	
-		}			
+		$("#searchbar").removeClass("hidden");		
 	}
 }
-$("#search").keyup(function() {
-	$("#clear").css("color", "#808080");
-});
 function search() {
 	var tr = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
 	var td; 
@@ -52,16 +43,13 @@ function search() {
 	}
 	
 	if ($("#search").val() === "") {
-		displayTable(tr);
-		$("#clear").css("color", "transparent");
+		displayTable();
 	}
-	$("#clear").click(function() {
-		displayTable(tr);   
-		$("#clear").css("color", "transparent");		
-	});
 }
 
-function displayTable(tr) {
+function displayTable() {
+	var tr = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+	
 	for (var x = 0; x < tr.length; x++) {
 		for (var y = 0; y < tr[x].getElementsByTagName("td").length; y++) {
 			tr[x].style.display = "block";
