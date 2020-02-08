@@ -14,12 +14,12 @@
 	?>
 	<main>
 		<form id="searchbar">
-			<input type="text" id="search" placeholder="Search..." title="Search phones" required>
-			<input type="reset" id="clear" value="&times;">
+			<input type="text" id="search" placeholder="Search. . ." required>
+			<input type="reset" value="&times;" id="clear">
 		</form>
 		<table>
 			<thead>
-				<tr> 
+				<tr>
 					<th>Model<i class="fas fa-sort"></i></th>
 					<th>Price<i class="fas fa-sort"></i></th>
 					<!--<th>Colors<i class="fas fa-sort"></i></th>-->
@@ -27,6 +27,7 @@
 					<th>Quantity<i class="fas fa-sort"></i></th>
 				</tr>
 			</thead>
+			<tbody>
 	<?php
 		$connection = mysqli_connect('helios.vse.gmu.edu','ayoung39','eesseg','ayoung39');
 			
@@ -35,7 +36,6 @@
 				$query = "SELECT PHONE_MODEL, PHONE_PRICE, PHONE_STATUS, PHONE_QUANTITY FROM PHONES";
 				$content = mysqli_query($connection, $query);
 				$phone = mysqli_fetch_assoc($content);
-				$products = "\t\t<tbody>\n";
 				
 				while ($phone) {
 					$products .= "\t\t\t\t<tr>\n";
@@ -47,8 +47,6 @@
 					$phone = mysqli_fetch_assoc($content);				
 				}
 				mysqli_free_result($content);
-				$products .= "\t\t\t</tbody>\n";
-				$products .= "\t\t</table>\n";
 			}
 		}
 		else {
@@ -57,6 +55,8 @@
 		echo $products;
 		mysqli_close($connection);
 	?>
+			</tbody>
+		</table>
 	</main>
 	<?php 
 		readfile("footer.html");
@@ -71,8 +71,8 @@
 		$("#search").keyup(function() {
 			clearTimeout(timeout);
 			timeout = setTimeout(search, 500);
+			$("#clear").css("color", "#808080");
 		});
-
 		var sortButtons = document.getElementsByClassName("fa-sort");
 		
 		for (var i = 0; i < sortButtons.length; i++) {
