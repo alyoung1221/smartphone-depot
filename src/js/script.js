@@ -1,15 +1,36 @@
-window.addEventListener("scroll", stickyHeader);
+$(window).scroll(stickyHeader);
+$(window).resize(function() {
+	if ($(window).width() >= 1000) {
+		closeNav();
+	}
+});
+
+$("#open").click(openNav);
+$("#close").click(closeNav);
+$("#date").html(new Date().getFullYear()); 
 
 function stickyHeader() {
 	if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
-		$("header").attr("id", "sticky"); 
-		$("#searchbar").addClass("hidden");
+		$("header").eq(0).attr("id", "sticky"); 
 	} 
 	else {	
-		$("header").attr("id", "");
-		$("#searchbar").removeClass("hidden");		
+		$("header").eq(0).attr("id", "");	
 	}
 }
+		
+function openNav() {
+	$(".menu").eq(0).removeClass("close");
+	$(".menu").eq(0).addClass("open transition");
+	$("header div").attr("id", "body-overlay");
+	$("body").css("overflow-y", "hidden");
+}
+
+function closeNav() {
+	$(".menu").eq(0).addClass("close");
+	$("header div").removeAttr("id");
+	$("body").css("overflow-y", "visible");
+}
+		
 function search() {
 	var tr = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
 	var td; 
