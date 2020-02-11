@@ -17,13 +17,13 @@
 		<div class="flex-container">
 			<form method="post" id="contact">
 				<label for="name" class="hidden">Name</label>
-				<input type="text" id="name" name="name" placeholder="Name*" title="Please enter your last name." maxlength="60" required><br>
+				<input type="text" id="name" name="name" placeholder="Name*" title="Please enter your last name." maxlength="60"><br>
 				<label for="email" class="hidden">E-mail</label>
-				<input type="email" id="email" name="email" placeholder="E-mail*" title="Please enter your e-mail." maxlength="60" required><br>
+				<input type="email" id="email" name="email" placeholder="E-mail*" title="Please enter your e-mail." maxlength="60"><br>
 				<label for="subject" class="hidden">Subject</label>
-				<input type="text" name="subject" id="subject" placeholder="Subject*" title="Please enter the subject." maxlength="60" required><br>
+				<input type="text" name="subject" id="subject" placeholder="Subject*" title="Please enter the subject." maxlength="60"><br>
 				<label for="message" class="hidden">Message</label>
-				<textarea id="msg" name="msg" rows="9" placeholder="Message*" title="Please write a message." maxlength="600" required></textarea><br>
+				<textarea id="msg" name="msg" rows="9" placeholder="Message*" title="Please write a message." maxlength="600"></textarea><br>
 				<button type="submit">Send</button>
 				<p id="success"></p>
 			</form>
@@ -49,7 +49,7 @@
 					</div>
 				</div>
 				<div>
-					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6211.939317893626!2d-77.222238!3d38.878936!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64b693b4878e1%3A0x64581df890c84d02!2s2735%20Hartland%20Rd%20%23303%2C%20Falls%20Church%2C%20VA%2022043%2C%20USA!5e0!3m2!1sen!2sbd!4v1581109070945!5m2!1sen!2sbd" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6211.939317893626!2d-77.222238!3d38.878936!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64b693b4878e1%3A0x64581df890c84d02!2s2735%20Hartland%20Rd%20%23303%2C%20Falls%20Church%2C%20VA%2022043%2C%20USA!5e0!3m2!1sen!2sbd!4v1581109070945!5m2!1sen!2sbd" frameborder="0"></iframe>
 				</div>
 			</section>
 		</div>
@@ -61,7 +61,7 @@
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="js/script.js"></script>
 	<script>
-		$("nav a").last().addClass("active");
+		$("nav a:nth-of-type(4)").addClass("active");
 	</script>
 </body>
 </html>
