@@ -78,19 +78,6 @@ function displayTable() {
 	} 
 }
 
-function filterPrice() {
-	var tr = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-	
-	for (var i = 0; i < tr.length; i++) {
-		if (parseInt(tr[i].getElementsByTagName("td")[1].innerHTML.substring(1)) <= parseInt($("#range").val())) {
-			tr[i].style.display = "block";
-		}
-		else {
-			tr[i].style.display = "none";
-		}
-	}
-}
-
 function sort(n) {
 	var switchcount = 0;
 	var switching = true;
@@ -133,15 +120,15 @@ function sort(n) {
 	}
 	
 	if (dir == "asc") {
-		document.getElementsByClassName("fas")[n].className = "fas fa-arrow-up";
+		$("th").eq(n).find("span").attr("class", "fas fa-arrow-up");
 	}
 	else if (dir == "desc") {
-		document.getElementsByClassName("fas")[n].className = "fas fa-arrow-down";
+		$("th").eq(n).find("span").attr("class", "fas fa-arrow-down");
 	}
 	
-	for (var i = 0; i < document.getElementsByClassName("fas").length; i++) {
+	for (var i = 0; i < document.getElementsByTagName("th").length; i++) {
 		if (i != n) {
-			document.getElementsByClassName("fas")[i].className = "fas fa-sort";
+			$("th").eq(i).find("span").attr("class", "fas fa-sort");
 		}
 	}
 }
