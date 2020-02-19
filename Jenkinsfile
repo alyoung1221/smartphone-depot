@@ -1,9 +1,9 @@
 pipeline {
-    agent { label 'master' }
+    agent any
     stages {
-        stage('build') {
+        stage('Git Checkout') {
             steps {
-                echo "Hello World!"
+                git branch: 'dev', credentialsId: 'f84109f2-8e72-4655-a187-f77ba3db3e81', url: 'https://Arian92@bitbucket.org/f6consulting/smartphone-depot.git'
             }
         }
     }
