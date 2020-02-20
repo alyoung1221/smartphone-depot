@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" query="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="X-UA-Compatible" query="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>{Page Title} | Smartphone Depot</title>
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
 	<link rel="icon" href="images/favicon.png" type="image/x-icon">
