@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2020 at 02:26 AM
+-- Generation Time: Feb 22, 2020 at 06:33 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -158,11 +158,7 @@ CREATE TABLE `loginadmin` (
 --
 
 INSERT INTO `loginadmin` (`idadmin`, `adminUsername`, `adminPassword`, `adminLevel`) VALUES
-(7, 'user3', 'fcea920f7412b5da7be0cf42b8c93759', 'level2'),
-(8, 'user9', '25f9e794323b453885f5181f1b624d0b', 'admin'),
-(10, 'tim', 'c20ad4d76fe97759aa27a0c99bff6710', 'level2'),
-(24, 'user4', '25f9e794323b453885f5181f1b624d0b', 'user'),
-(25, 'user6', '25f9e794323b453885f5181f1b624d0b', 'user');
+(29, 'user9', '25f9e794323b453885f5181f1b624d0b', 'admin');
 
 -- --------------------------------------------------------
 
@@ -229,20 +225,31 @@ CREATE TABLE `sp_cart` (
 --
 
 INSERT INTO `sp_cart` (`idCart`, `Quantity`, `idShopper`, `OrderPlaced`, `SubTotal`, `Shipping`, `Tax`, `Total`, `dtCreated`, `Promo`, `ShipFirstName`, `ShipLastName`, `ShipAddress`, `ShipCity`, `ShipState`, `ShipZipCode`, `ShipPhone`, `ShipFax`, `ShipEmail`, `BillFirstName`, `BillLastName`, `BillAddress`, `BillCity`, `BillState`, `BillZipCode`, `BillPhone`, `BillFax`, `BillEmail`, `dtOrdered`, `ShipProvince`, `ShipCountry`, `BillProvince`, `BillCountry`, `CardType`, `CardNumber`, `ExpMonth`, `ExpYear`, `CardName`, `shipbill`, `ShipFlag`) VALUES
-(1, 1, 100, 0, 399.99, 5, 20, 419.99, '2020-01-02 02:12:06', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-01-02 22:14:35', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
-(2, 1, 100, 0, 799.99, 6, 20, 819.99, '2020-01-01 08:34:17', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-01-02 22:16:42', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
-(3, 1, 101, 0, 799.99, 7, 30, 829.99, '2020-01-01 13:06:19', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-01-02 22:17:55', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
-(4, 1, 101, 0, 399.99, 8, 30, 429.99, '2020-01-01 17:10:38', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-01-02 22:25:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
-(5, 4, 102, 1, 2100.96, 5, 94.5432, 2200.5032, '2020-01-01 06:36:07', 0, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-01-02 22:25:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
-(6, 2, 102, 0, 799.99, 8, 40, 829.99, '2020-01-01 19:08:40', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-01-02 22:25:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
-(7, 1, 103, 0, 399.99, 5, 17.99955, 422.98955, '2020-01-01 05:26:43', 0, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-01-02 22:25:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
-(8, 2, 103, 0, 799.99, 7, 30, 829.99, '2020-01-01 09:35:03', 0, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-01-02 22:25:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N');
+(1, 1, 100, NULL, NULL, NULL, 20, NULL, '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(9, 1, 100, NULL, NULL, NULL, 20, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(10, 1, 101, 1, 399.99, 5, 17.99955, 422.98955, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(11, 1, 101, NULL, NULL, NULL, 30, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(12, 1, 102, NULL, NULL, NULL, 40, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(13, 2, 102, NULL, NULL, NULL, 40, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(14, 1, 103, NULL, NULL, NULL, 50, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(15, 2, 103, NULL, NULL, NULL, 30, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N');
 
 --
 -- Triggers `sp_cart`
 --
 DELIMITER $$
 CREATE TRIGGER `product_inventory_trgs` AFTER UPDATE ON `sp_cart` FOR EACH ROW BEGIN
+declare lv_idcart int(8); 
+ declare lv_firstname varchar(30);
+ declare lv_lastname VARCHAR(30);
+  declare lv_address varchar(100);
+ declare lv_dtcreated date;
+  declare lv_qty int(5);
+ declare lv_productname VARCHAR(50);
+  declare lv_description varchar(80);
+ declare lv_phonetype VARCHAR(20);
+  declare lv_color varchar(20);
+ declare lv_grade VARCHAR(20);
 declare lv_change_number DOUBLE; 
  declare lv_finished int(2);
  declare lv_idSmartPhones VARCHAR(16);
@@ -251,8 +258,10 @@ DECLARE cursor1 CURSOR FOR
  SELECT idSmartPhones, quantity 
  FROM sp_cartitem
  WHERE idCart = NEW.idCart;
+ 
  DECLARE CONTINUE HANDLER 
         FOR NOT FOUND SET lv_finished = 1;
+  
  OPEN cursor1;
  getRedcord: LOOP
  FETCH cursor1 INTO lv_idSmartPhones, lv_quantity;
@@ -264,8 +273,33 @@ DECLARE cursor1 CURSOR FOR
  SET stock = stock - lv_quantity 
  WHERE idSmartPhones = lv_idSmartPhones; 
 end if;
+BEGIN
+
+DECLARE cursor2 CURSOR FOR 
+SELECT c.idcart, firstname, lastname, address, dtcreated, ci.quantity, productname, description, phonetype, color, grade
+FROM sp_shopper s, sp_cart c, sp_cartitem ci, sp_phones p
+WHERE s.idshopper = c.idshopper and c.idcart = ci.idcart and ci.idsmartphones = p.idsmartphones and ci.idCart = NEW.idCart AND NEW.OrderPlaced = 1;
+
+OPEN cursor2;
+ getRedcord1: LOOP
+ FETCH cursor2 INTO lv_idcart, lv_firstname,lv_lastname,lv_address,lv_dtcreated,lv_qty,lv_productname,lv_description,lv_phonetype, lv_color, lv_grade;
+ IF lv_finished = 1 THEN 
+     LEAVE getRedcord1;
+ END IF;
+ if NEW.OrderPlaced = 1 then
+insert into SP_phone_onlinesell_record(idonlineSaleHistory,idBasket,CustomerFName,customerLName,address,dtcreated,qtys,
+productname,description,phonetype,color,grade,currentdate,actionTaken)
+values(null, lv_idcart, lv_firstname, lv_lastname,lv_address,lv_dtcreated,lv_qty,
+lv_productname,lv_description,lv_phonetype,lv_color,lv_grade,SYSDATE(), 'S-SOLD');
+END IF;
+ END LOOP getRedcord1;
+ CLOSE cursor2; 
+
+END;
  END LOOP getRedcord;
  CLOSE cursor1; 
+ 
+ 
 END
 $$
 DELIMITER ;
@@ -291,20 +325,19 @@ CREATE TABLE `sp_cartitem` (
 --
 
 INSERT INTO `sp_cartitem` (`idCartItem`, `idSmartPhones`, `Price`, `Quantity`, `idCart`, `option1`, `option2`) VALUES
-(1, '123456789123456', 399.99, 1, 1, 1, 4),
-(2, '987654321234567', 799.99, 2, 2, 2, 3),
-(3, '123456789123456', 399.99, 1, 2, 3, 2),
-(4, '987654321234567', 799.99, 2, 3, 2, 4),
-(5, '987654321234567', 799.99, 1, 1, 1, 4),
-(6, '123456789123456', 399.99, 1, 3, 1, 2),
-(7, '987654321234567', 799.99, 2, 4, 2, 3),
-(8, '123456789123456', 399.99, 1, 5, 1, 4),
-(9, '987654321234567', 799.99, 1, 4, 1, 3),
-(10, '987654321234567', 799.99, 2, 6, 1, 3),
-(11, '123456789123456', 399.99, 1, 7, 2, 4),
-(12, '987654321234567', 799.99, 1, 8, 1, 1),
-(14, '987654321234567', 500.99, 1, 5, 2, 4),
-(15, '987654321234567', 599.99, 2, 5, 2, 4);
+(1, '11', 399.99, 1, 1, 1, 4),
+(17, '11', 399.99, 1, 1, 1, 4),
+(18, '11', 799.99, 2, 9, 2, 3),
+(19, '12', 399.99, 1, 10, 3, 2),
+(20, '13', 799.99, 2, 11, 2, 4),
+(21, '14', 799.99, 1, 11, 1, 4),
+(22, '15', 399.99, 1, 12, 1, 2),
+(23, '16', 799.99, 2, 13, 2, 3),
+(24, '17', 399.99, 1, 13, 1, 4),
+(25, '18', 799.99, 1, 14, 1, 3),
+(26, '19', 799.99, 2, 15, 1, 3),
+(27, '20', 399.99, 1, 15, 2, 4),
+(28, '21', 799.99, 1, 13, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -321,17 +354,6 @@ CREATE TABLE `sp_cartstatus` (
   `shipper` varchar(5) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ShippingNum` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `sp_cartstatus`
---
-
-INSERT INTO `sp_cartstatus` (`idStatus`, `idCart`, `idStage`, `dtStage`, `Notes`, `shipper`, `ShippingNum`) VALUES
-(1, 1, 1, '2020-01-10', NULL, NULL, NULL),
-(2, 1, 5, '2020-01-11', NULL, NULL, NULL),
-(3, 2, 1, '2020-01-12', NULL, NULL, NULL),
-(4, 2, 5, '2020-01-13', NULL, NULL, NULL),
-(5, 3, 1, '2020-01-14', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -414,6 +436,29 @@ CREATE TABLE `sp_items` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sp_online_orderprocess_record`
+--
+
+CREATE TABLE `sp_online_orderprocess_record` (
+  `idonlineProcess` int(8) NOT NULL,
+  `idBasket` int(8) DEFAULT NULL,
+  `CustomerFName` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `customerLName` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `dtcreated` date DEFAULT NULL,
+  `quantities` int(6) DEFAULT NULL,
+  `productname` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phonetype` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `color` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `grade` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `currentdate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `actionTaken` char(1) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sp_phones`
 --
 
@@ -424,6 +469,7 @@ CREATE TABLE `sp_phones` (
   `Description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PhoneType` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `color` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `storageGB` int(5) NOT NULL,
   `grade` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `ProductImage` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Price` double DEFAULT NULL,
@@ -443,26 +489,25 @@ CREATE TABLE `sp_phones` (
 -- Dumping data for table `sp_phones`
 --
 
-INSERT INTO `sp_phones` (`idSmartPhones`, `sku`, `ProductName`, `Description`, `PhoneType`, `color`, `grade`, `ProductImage`, `Price`, `stock`, `SaleStart`, `SaleEnd`, `SalePrice`, `Active`, `Featured`, `FeatureStart`, `FeatureEnd`, `Type`, `idDepartment`) VALUES
-('123456789123456', 14, 'iphone 8', 'iphone 8, 64 GB - silver', 'iphone8', 'silver', 'orange', 'iphone8.png', 399.99, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('987654321234567', 14, 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'gold', 'green', 'iphoneXS.png', 799.99, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1);
-
---
--- Triggers `sp_phones`
---
-DELIMITER $$
-CREATE TRIGGER `phoneSale_history_trigs` AFTER UPDATE ON `sp_phones` FOR EACH ROW BEGIN
-	
-IF OLD.stock <> NEW.stock THEN
-	INSERT INTO sp_phone_sales_history (idSaleHistory, idSmartPhones, ProductName, Description, PhoneType,grade,Price, currentdate, actionTaken)
-	VALUES(null,OLD.idSmartPhones,OLD.ProductName,OLD.Description,OLD.PhoneType, OLD.grade, OLD.Price, SYSDATE(), 'U-Sold');
-ELSE
-	INSERT INTO sp_phone_sales_history (idSaleHistory, idSmartPhones, ProductName, Description, PhoneType,grade,Price, currentdate, actionTaken)
-	VALUES(null,OLD.idSmartPhones,OLD.ProductName,OLD.Description,OLD.PhoneType, OLD.grade, OLD.Price, SYSDATE(), 'D-delete');
-END IF;
-END
-$$
-DELIMITER ;
+INSERT INTO `sp_phones` (`idSmartPhones`, `sku`, `ProductName`, `Description`, `PhoneType`, `color`, `storageGB`, `grade`, `ProductImage`, `Price`, `stock`, `SaleStart`, `SaleEnd`, `SalePrice`, `Active`, `Featured`, `FeatureStart`, `FeatureEnd`, `Type`, `idDepartment`) VALUES
+('11', 1, 'iphone X', 'iphone X, 64 GB - Gold', 'iphoneX64orange', '', 64, 'orange', 'iphoneXS.png', 699.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('12', 1, 'iphone X', 'iphone X, 64 GB - Gold', 'iphoneX64green', '', 64, 'green', 'iphoneXS.png', 599.99, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('13', 1, 'iphone X', 'iphone X, 64 GB - Gold', 'iphoneX64yellow', '', 64, 'yellow', 'iphoneXS.png', 499.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('14', 1, 'iphone X', 'iphone X, 128 GB - Gold', 'iphoneX128orange', '', 128, 'orange', 'iphoneXS.png', 799.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('15', 1, 'iphone X', 'iphone X, 128 GB - Gold', 'iphoneX128green', '', 128, 'green', 'iphoneXS.png', 699.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('16', 1, 'iphone X', 'iphone X, 128 GB - Gold', 'iphoneX128yellow', '', 128, 'yellow', 'iphoneXS.png', 599.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('17', 1, 'iphone X', 'iphone X, 256 GB - Gold', 'iphoneX256orange', '', 256, 'orange', 'iphoneXS.png', 899.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('18', 1, 'iphone X', 'iphone X, 256 GB - Gold', 'iphoneX256green', '', 256, 'green', 'iphoneXS.png', 799.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('19', 1, 'iphone X', 'iphone X, 256 GB - Gold', 'iphoneX256yellow', '', 256, 'yellow', 'iphoneXS.png', 699.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('20', 1, 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS64orange', '', 64, 'orange', 'iphoneXS.png', 799.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('21', 1, 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS64green', '', 64, 'green', 'iphoneXS.png', 699.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('22', 1, 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS64yellow', '', 64, 'yellow', 'iphoneXS.png', 599.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('23', 1, 'iphone XS', 'iphone XS, 128 GB - Gold', 'iphoneXS128orange', '', 128, 'orange', 'iphoneXS.png', 899.99, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('24', 1, 'iphone XS', 'iphone XS, 128 GB - Gold', 'iphoneXS128green', '', 128, 'green', 'iphoneXS.png', 799.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('25', 1, 'iphone XS', 'iphone XS, 128 GB - Gold', 'iphoneXS128yellow', '', 128, 'yellow', 'iphoneXS.png', 699.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('26', 1, 'iphone XS', 'iphone XS, 256 GB - Gold', 'iphoneXS256orange', '', 256, 'orange', 'iphoneXS.png', 999.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('27', 1, 'iphone XS', 'iphone XS, 256 GB - Gold', 'iphoneXS256green', '', 256, 'green', 'iphoneXS.png', 899.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+('28', 1, 'iphone XS', 'iphone XS, 256 GB - Gold', 'iphoneXS256yellow', '', 256, 'yellow', 'iphoneXS.png', 799.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1);
 
 -- --------------------------------------------------------
 
@@ -506,23 +551,83 @@ CREATE TABLE `sp_phonesoptiondetail` (
 --
 
 CREATE TABLE `sp_phonespos` (
+  `idphonepos` int(16) NOT NULL,
   `IMEI` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
   `PhoneName` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PhoneType` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `color` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `grade` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ProductImage` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `grade` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ProductImage` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Price` double DEFAULT NULL,
   `SaleStart` date DEFAULT NULL,
   `SaleEnd` date DEFAULT NULL,
   `SalePrice` double DEFAULT NULL,
   `Active` int(1) DEFAULT NULL,
-  `Featured` int(1) DEFAULT NULL,
+  `idCustomer` varchar(9) COLLATE utf8_unicode_ci DEFAULT NULL,
   `FeatureStart` date DEFAULT NULL,
   `FeatureEnd` date DEFAULT NULL,
   `Type` char(1) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `sp_phonespos`
+--
+
+INSERT INTO `sp_phonespos` (`idphonepos`, `IMEI`, `PhoneName`, `Description`, `PhoneType`, `color`, `grade`, `ProductImage`, `Price`, `SaleStart`, `SaleEnd`, `SalePrice`, `Active`, `idCustomer`, `FeatureStart`, `FeatureEnd`, `Type`) VALUES
+(18, '12345678955433', 'iphone XS', 'iphone Xs, 128 GB - Gold', 'iphoneXS128orange', 'gold', 'orange', 'iphoneXS.png', 499.99, NULL, NULL, NULL, 1, NULL, NULL, NULL, '1'),
+(19, '12345678955431', 'iphone X', 'iphone X, 64 GB - Gold', 'iphoneX64green', 'gold', 'green', 'iphoneXS.png', 499.99, NULL, NULL, NULL, 1, NULL, NULL, NULL, '1');
+
+--
+-- Triggers `sp_phonespos`
+--
+DELIMITER $$
+CREATE TRIGGER `ADD_NEW_INVENTORY` AFTER INSERT ON `sp_phonespos` FOR EACH ROW BEGIN
+	IF NEW.PhoneType IS NOT NULL THEN 
+	update sp_phones
+    SET STOCK = STOCK + 1
+    WHERE PhoneType = NEW.PhoneType;
+    END IF;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `phoneSale_history_trigs` AFTER DELETE ON `sp_phonespos` FOR EACH ROW BEGIN
+	declare lv_idonlineProcess int(8);
+	declare lv_finished int(2);
+    declare lv_quantity int(6);
+    DECLARE cursor1 CURSOR FOR 
+ SELECT quantities, idonlineProcess
+ FROM SP_Online_orderprocess_record
+ WHERE idonlineProcess = idonlineProcess;
+  DECLARE CONTINUE HANDLER 
+        FOR NOT FOUND SET lv_finished = 1;
+  OPEN cursor1;
+ getRedcord: LOOP
+ FETCH cursor1 INTO lv_quantity, lv_idonlineProcess;
+ IF lv_finished = 1 THEN 
+     LEAVE getRedcord;
+ END IF;
+ if (lv_quantity > 1) then
+ UPDATE SP_Online_orderprocess_record 
+ SET quantities = quantities - 1
+ WHERE idonlineProcess = lv_idonlineProcess; 
+ 
+ INSERT INTO sp_phone_sales_history (idSaleHistory, idSmartPhones, ProductName, Description, PhoneType,sphonecolor, grade,Price, currentdate, actionTaken)
+	VALUES(null,OLD.IMEI,OLD.PhoneName,OLD.Description,OLD.PhoneType, old.color, OLD.grade, OLD.Price, SYSDATE(), 'U-Sold');
+ ELSE
+ DELETE FROM SP_Online_orderprocess_record 
+    WHERE OLD.PhoneType = Phonetype;
+    
+    INSERT INTO sp_phone_sales_history (idSaleHistory, idSmartPhones, ProductName, Description, PhoneType,sphonecolor, grade,Price, currentdate, actionTaken)
+	VALUES(null,OLD.IMEI,OLD.PhoneName,OLD.Description,OLD.PhoneType, old.color, OLD.grade, OLD.Price, SYSDATE(), 'U-Sold');
+end if;
+ END LOOP getRedcord;
+ CLOSE cursor1;
+ 
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -543,6 +648,46 @@ CREATE TABLE `sp_phones_request` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sp_phone_onlinesell_record`
+--
+
+CREATE TABLE `sp_phone_onlinesell_record` (
+  `idonlineSaleHistory` int(8) NOT NULL,
+  `idBasket` int(8) DEFAULT NULL,
+  `CustomerFName` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `customerLName` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `dtcreated` date DEFAULT NULL,
+  `qtys` int(6) NOT NULL,
+  `productname` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phonetype` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `color` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `grade` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `currentdate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `actionTaken` char(1) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Triggers `sp_phone_onlinesell_record`
+--
+DELIMITER $$
+CREATE TRIGGER `addTo_process_order_TRg` AFTER DELETE ON `sp_phone_onlinesell_record` FOR EACH ROW BEGIN
+	
+
+insert into SP_Online_orderprocess_record(idonlineProcess,idBasket,CustomerFName,customerLName,address,dtcreated,quantities,
+productname,description,phonetype,color,grade,currentdate,actionTaken)
+values(null, OLD.idBasket, OLD.CustomerFName, OLD.customerLName,OLD.address,OLD.dtcreated,OLD.qtys,
+OLD.productname,OLD.description,OLD.phonetype,OLD.color,OLD.grade,SYSDATE(), 'S-SOLD');
+
+
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sp_phone_sales_history`
 --
 
@@ -552,6 +697,7 @@ CREATE TABLE `sp_phone_sales_history` (
   `ProductName` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PhoneType` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sphonecolor` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `grade` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Price` double DEFAULT NULL,
   `currentdate` datetime DEFAULT CURRENT_TIMESTAMP,
@@ -562,23 +708,19 @@ CREATE TABLE `sp_phone_sales_history` (
 -- Dumping data for table `sp_phone_sales_history`
 --
 
-INSERT INTO `sp_phone_sales_history` (`idSaleHistory`, `idSmartPhones`, `ProductName`, `Description`, `PhoneType`, `grade`, `Price`, `currentdate`, `actionTaken`) VALUES
-(77, '123456789123456', 'iphone 8', 'iphone 8, 64 GB - silver', 'iphone8', 'orange', 399.99, '2020-01-08 12:10:41', 'U-Sold'),
-(78, '123456789123456', 'iphone 8', 'iphone 8, 64 GB - silver', 'iphone8', 'orange', 399.99, '2020-01-08 12:11:24', 'U-Sold'),
-(79, '987654321234567', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'green', 799.99, '2020-01-08 12:11:24', 'U-Sold'),
-(80, '987654321234567', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'green', 799.99, '2020-01-08 12:11:24', 'U-Sold'),
-(81, '123456789123456', 'iphone 8', 'iphone 8, 64 GB - silver', 'iphone8', 'orange', 399.99, '2020-01-17 18:40:26', 'U-Sold'),
-(82, '987654321234567', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'green', 799.99, '2020-01-17 18:40:38', 'U-Sold'),
-(83, '123456789123456', 'iphone 8', 'iphone 8, 64 GB - silver', 'iphone8', 'orange', 399.99, '2020-01-17 19:14:11', 'U-Sold'),
-(84, '987654321234567', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'green', 799.99, '2020-01-17 19:14:11', 'U-Sold'),
-(85, '987654321234567', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'green', 799.99, '2020-01-17 19:14:11', 'U-Sold'),
-(86, '987654321234567', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'green', 799.99, '2020-01-17 19:34:31', 'U-Sold'),
-(87, '123456789123456', 'iphone 8', 'iphone 8, 64 GB - silver', 'iphone8', 'orange', 399.99, '2020-01-17 19:34:44', 'U-Sold'),
-(88, '123456789123456', 'iphone 8', 'iphone 8, 64 GB - silver', 'iphone8', 'orange', 399.99, '2020-01-17 19:37:52', 'U-Sold'),
-(89, '987654321234567', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'green', 799.99, '2020-01-17 19:37:52', 'U-Sold'),
-(90, '987654321234567', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'green', 799.99, '2020-01-17 19:37:52', 'U-Sold'),
-(91, '123456789123456', 'iphone 8', 'iphone 8, 64 GB - silver', 'iphone8', 'orange', 399.99, '2020-02-01 12:26:23', 'U-Sold'),
-(92, '987654321234567', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'green', 799.99, '2020-02-01 12:26:37', 'U-Sold');
+INSERT INTO `sp_phone_sales_history` (`idSaleHistory`, `idSmartPhones`, `ProductName`, `Description`, `PhoneType`, `sphonecolor`, `grade`, `Price`, `currentdate`, `actionTaken`) VALUES
+(4, '12345678955435', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'gold', 'orange', 799.99, '2020-02-20 19:39:15', 'U-Sold'),
+(5, '12345778905430', 'iphone8', 'iphone 8, 64 GB - Gold', 'iphone8', 'gold', 'orange', 799.99, '2020-02-20 19:50:07', 'U-Sold'),
+(6, '12345678955435', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'gold', 'orange', 799.99, '2020-02-20 19:53:56', 'U-Sold'),
+(7, '12345678955431', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'gold', 'orange', 799.99, '2020-02-20 20:48:04', 'U-Sold'),
+(8, '12345678955432', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'gold', 'orange', 799.99, '2020-02-20 20:49:12', 'U-Sold'),
+(9, '12345778905437', 'iphone8', 'iphone 8, 64 GB - Gold', 'iphone8', 'gold', 'orange', 799.99, '2020-02-20 21:03:51', 'U-Sold'),
+(10, '12345778905437', 'iphone8', 'iphone 8, 64 GB - Gold', 'iphone8', 'gold', 'orange', 799.99, '2020-02-20 21:03:51', 'U-Sold'),
+(11, '12345678955434', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'gold', 'orange', 799.99, '2020-02-21 22:34:56', 'U-Sold'),
+(12, '12345678955434', 'iphone XS', 'iphone XS, 64 GB - Gold', 'iphoneXS', 'gold', 'orange', 799.99, '2020-02-21 22:34:56', 'U-Sold'),
+(13, '12345778905438', 'iphone8', 'iphone 8, 64 GB - Gold', 'iphone8', 'gold', 'orange', 799.99, '2020-02-21 23:29:03', 'U-Sold'),
+(14, '12345778905439', 'iphone8', 'iphone 8, 64 GB - Gold', 'iphone8', 'gold', 'orange', 799.99, '2020-02-21 23:29:58', 'U-Sold'),
+(15, '12345678955431', 'iphone X', 'iphone X, 64 GB - Gold', 'iphoneX64green', 'gold', 'green', 499.99, '2020-02-21 23:41:28', 'U-Sold');
 
 -- --------------------------------------------------------
 
@@ -612,9 +754,53 @@ CREATE TABLE `sp_shipping` (
 --
 
 INSERT INTO `sp_shipping` (`idRange`, `Low`, `High`, `Fee`) VALUES
-(1, 1, 5, 5),
+(1, 1, 1, 5),
 (2, 6, 20, 10),
 (3, 21, 999, 15);
+
+--
+-- Triggers `sp_shipping`
+--
+DELIMITER $$
+CREATE TRIGGER `online_sale_history_trig` AFTER UPDATE ON `sp_shipping` FOR EACH ROW BEGIN
+declare lv_finished int(2);
+declare lv_idcart int(8); 
+ declare lv_firstname varchar(30);
+ declare lv_lastname VARCHAR(30);
+  declare lv_address varchar(100);
+ declare lv_dtcreated date;
+  declare lv_qty int(5);
+ declare lv_productname VARCHAR(50);
+  declare lv_description varchar(80);
+ declare lv_phonetype VARCHAR(20);
+  declare lv_color varchar(20);
+ declare lv_grade VARCHAR(20);
+ 
+DECLARE cursor1 CURSOR FOR 
+
+SELECT c.idcart, firstname, lastname, address, dtcreated, ci.quantity, productname, description, phonetype, color, grade
+FROM sp_shopper s, sp_cart c, sp_cartitem ci, sp_phones p
+WHERE s.idshopper = c.idshopper and c.idcart = ci.idcart and ci.idsmartphones = p.idsmartphones and c.orderplaced = 1;
+ 
+ DECLARE CONTINUE HANDLER 
+ FOR NOT FOUND SET lv_finished = 1;
+ OPEN cursor1;
+ getRedcord: LOOP
+ FETCH cursor1 INTO lv_idcart, lv_firstname,lv_lastname,lv_address,lv_dtcreated,lv_qty,lv_productname,lv_description,lv_phonetype, lv_color, lv_grade;
+ IF lv_finished = 1 THEN 
+     LEAVE getRedcord;
+ END IF;
+ if NEW.high = 1 then
+insert into SP_phone_onlinesell_record(idonlineSaleHistory,idBasket,CustomerFName,customerLName,address,dtcreated,qtys,
+productname,description,phonetype,color,grade,currentdate,actionTaken)
+values(null, lv_idcart, lv_firstname, lv_lastname,lv_address,lv_dtcreated,lv_qty,
+lv_productname,lv_description,lv_phonetype,lv_color,lv_grade,SYSDATE(), 'S-SOLD');
+end if;
+ END LOOP getRedcord;
+ CLOSE cursor1; 
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -766,6 +952,12 @@ ALTER TABLE `sp_items`
   ADD PRIMARY KEY (`iditems`);
 
 --
+-- Indexes for table `sp_online_orderprocess_record`
+--
+ALTER TABLE `sp_online_orderprocess_record`
+  ADD PRIMARY KEY (`idonlineProcess`);
+
+--
 -- Indexes for table `sp_phones`
 --
 ALTER TABLE `sp_phones`
@@ -796,7 +988,7 @@ ALTER TABLE `sp_phonesoptiondetail`
 -- Indexes for table `sp_phonespos`
 --
 ALTER TABLE `sp_phonespos`
-  ADD PRIMARY KEY (`IMEI`);
+  ADD PRIMARY KEY (`idphonepos`);
 
 --
 -- Indexes for table `sp_phones_request`
@@ -804,6 +996,12 @@ ALTER TABLE `sp_phonespos`
 ALTER TABLE `sp_phones_request`
   ADD PRIMARY KEY (`idRequest`),
   ADD KEY `prodrequest_idprod_fk` (`idSmartPhones`);
+
+--
+-- Indexes for table `sp_phone_onlinesell_record`
+--
+ALTER TABLE `sp_phone_onlinesell_record`
+  ADD PRIMARY KEY (`idonlineSaleHistory`);
 
 --
 -- Indexes for table `sp_phone_sales_history`
@@ -843,25 +1041,25 @@ ALTER TABLE `sp_tax`
 -- AUTO_INCREMENT for table `loginadmin`
 --
 ALTER TABLE `loginadmin`
-  MODIFY `idadmin` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `idadmin` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `sp_cart`
 --
 ALTER TABLE `sp_cart`
-  MODIFY `idCart` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idCart` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `sp_cartitem`
 --
 ALTER TABLE `sp_cartitem`
-  MODIFY `idCartItem` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idCartItem` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `sp_cartstatus`
 --
 ALTER TABLE `sp_cartstatus`
-  MODIFY `idStatus` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idStatus` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sp_companycustomer`
@@ -888,10 +1086,28 @@ ALTER TABLE `sp_items`
   MODIFY `iditems` int(8) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `sp_online_orderprocess_record`
+--
+ALTER TABLE `sp_online_orderprocess_record`
+  MODIFY `idonlineProcess` int(8) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sp_phonespos`
+--
+ALTER TABLE `sp_phonespos`
+  MODIFY `idphonepos` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `sp_phone_onlinesell_record`
+--
+ALTER TABLE `sp_phone_onlinesell_record`
+  MODIFY `idonlineSaleHistory` int(8) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `sp_phone_sales_history`
 --
 ALTER TABLE `sp_phone_sales_history`
-  MODIFY `idSaleHistory` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `idSaleHistory` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `sp_promolist`
