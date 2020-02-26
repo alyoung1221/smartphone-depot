@@ -13,7 +13,7 @@
 		readfile("header.html");
 	?>
 	<main>
-		<div>
+		<section>
 			<h1> About Us </h1><br><br><br>
 			
 			<p> 
@@ -25,7 +25,41 @@
 				that are guaranteed to meet their needs and keep them satisfied! But most importantly, we believe shopping is a
 				right, not a luxury.		
 			</p>
-		</div>
+		</section>
+		<br><br><br>
+		<section>
+			<div class = "row">
+				<div>
+					<div class = "about-images">
+						<img src = "images/Quality.png" alt = "picture of trophy">
+					</div>
+					<b>Quality</b><br>
+					<br>
+					To keep maintain the best quality we go through rigorous process 
+					to ensure that every product is reliable. We believe that quality 
+					matters to our customers.
+					
+				</div>
+				<div>
+					<div class = "about-images">
+						<img src = "images/people-powered.png" alt = "handshake image">
+					</div>
+					<b>People Powered</b><br>
+					<br>
+					On Smartphone-Depot you buy directly form us. Cutting out the middleman
+					means you buy the best quality products with the best prices and highest value.
+				</div>
+				<div>
+					<div class = "about-images">
+						<img src = "images/paypal-protection.png" alt = "paypal logo">
+					</div>
+					<b>Paypal Protection</b><br>
+					<br>
+					Buyers and sellers transact safely and directly using PayPal. Extensive
+					buyer and seller protections keep both parties safe. And sellers get paid fast.
+				</div>
+			</div>
+		</section>
 	</main>
 	<?php 
 		readfile("footer.html");
