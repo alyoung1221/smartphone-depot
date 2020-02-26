@@ -13,15 +13,19 @@
 		readfile("header.html");
 	?>
 	<main>
-		<p> 
-			Smartphone-Depot is a leader in Reseller Company that sells pre-owned consumer electronics. 
-			We sell pre-owned smartphones, tablets, iPads and iWatch. At Smartphone-Depot, we take pride 
-			in our products. We thoroughly go through our process to provide the quality of our goods, working 
-			only with a reliable supplier so that our client receives the best quality of products. At Smartphone-Depot 
-			our passion for our products means that we provide our customers nothing but the highest quality of products 
-			that are guaranteed to meet their needs and keep them satisfied! But most importantly, we believe shopping is a
-			right, not a luxury.		
-		</p>
+		<div>
+			<h1> About Us </h1><br><br><br>
+			
+			<p> 
+				Smartphone-Depot is a leader in Reseller Company that sells pre-owned consumer electronics. 
+				We sell pre-owned smartphones, tablets, iPads and iWatch. At Smartphone-Depot, we take pride 
+				in our products. We thoroughly go through our process to provide the quality of our goods, working 
+				only with a reliable supplier so that our client receives the best quality of products. At Smartphone-Depot 
+				our passion for our products means that we provide our customers nothing but the highest quality of products 
+				that are guaranteed to meet their needs and keep them satisfied! But most importantly, we believe shopping is a
+				right, not a luxury.		
+			</p>
+		</div>
 	</main>
 	<?php 
 		readfile("footer.html");
