@@ -37,8 +37,10 @@ if (isset($_GET['logout'])) {
 		<?php require 'includes/header.php';?>
 		<div id = "content">
 		
-		<h1>Home Page</h1>
-		<a href="index.php?logout='1'" style="color: red;">logout</a>
+		<h1>Home Page</h1></br>
+		<label for="inputHelpBlock">Scan/Enter IMEI Number</label></br>
+		<input type="text" id="inputHelpBlock" class="form-control"placeholder="Scan/Enter IMEI Number"></br>
+		<button type="button" class="btn btn-primary">Search</button>
 		</div>
 		<?php require 'includes/footer.php';?>
 </div>
