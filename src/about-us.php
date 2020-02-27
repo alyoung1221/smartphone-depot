@@ -30,6 +30,6 @@
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="js/script.js"></script>
 	<script>
-	</script>s
+	</script>
 </body>
 </html>
