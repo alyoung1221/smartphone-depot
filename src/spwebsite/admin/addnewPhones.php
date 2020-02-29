@@ -41,6 +41,7 @@ if (isset($_GET['logout'])) {
 	$PhoneNames = $_POST["phonename"];
 	
 	$phonetypes = $_POST["phonetype"];
+	$storage = $_POST["storagegbs"];
 	$colors = $_POST["color"];
 	$grades = $_POST["grade"];
 	$prices = $_POST["price"];
@@ -49,8 +50,8 @@ if (isset($_GET['logout'])) {
 
 	// create table sp_phonespos to hold the data
 
-	if (!@mysqli_query($connection, "INSERT INTO sp_phonespos (idphonepos, IMEI, PhoneName, PhoneType, color, grade, price) 
-		VALUES (null,'$IMEI', '$PhoneNames', '$phonetypes','$colors','$grades', $prices )")) {
+	if (!@mysqli_query($connection, "INSERT INTO sp_phonespos (idphonepos, IMEI, PhoneName, PhoneType, storageGB, color, grade, price) 
+		VALUES (null,'$IMEI', '$PhoneNames', '$phonetypes', $storage, '$colors','$grades', $prices )")) {
 		echo "Error doing Add new inventory";
 	} else {
 		$rows = mysqli_affected_rows($connection);

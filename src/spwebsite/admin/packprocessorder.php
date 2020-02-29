@@ -49,6 +49,7 @@ if (isset($_GET['logout'])) {
 				<th>Product</th>
 				<th>Description</th>
 				<th>Phone Type</th>
+				<th>Storeage</th>
 				<th>Colors</th>
 				<th>Grades</th>
 				<th>Qtys</th>
@@ -59,7 +60,7 @@ if (isset($_GET['logout'])) {
 				$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
 				$result = mysqli_query($connection, 
 				"SELECT idBasket,CustomerFName,customerLName,address,dtcreated,
-productname,description,phonetype,color,grade,quantities,idonlineProcess
+productname,description,phonetype,storageGB,color,grade,quantities,idonlineProcess
 FROM SP_Online_orderprocess_record;");
 				
 				while ($row = mysqli_fetch_row($result)) {
@@ -78,6 +79,7 @@ FROM SP_Online_orderprocess_record;");
 				<td><?php echo $row[9];?></td>
 				<td><?php echo $row[10];?></td>
 				<td><?php echo $row[11];?></td>
+				<td><?php echo $row[12];?></td>
 				
 
 			</tr>
@@ -90,11 +92,15 @@ FROM SP_Online_orderprocess_record;");
 		</table>
 			<?php $connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
 				$phonetype = mysqli_query($connection, 
-				"SELECT phonetype FROM SP_Online_orderprocess_record;");
+				"SELECT phonetype,storageGB, color, grade FROM SP_Online_orderprocess_record;");
 				
 				$result2 = mysqli_fetch_row($phonetype);
 				
-				$typeofphone =  $result2[0];?>
+				$typeofphone =  $result2[0];
+				$storageofphone = $result2[1];
+				$colorofphone =  $result2[2];
+				$gradeofphone =  $result2[3];
+				?>
 			<form class="form-group" method="post" action="searchPhoneOrderProcess.php">
 				</br></br>
 				<label for="formGroupExampleInput">Phone lookup</label></br>

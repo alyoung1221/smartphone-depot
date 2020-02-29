@@ -26,7 +26,14 @@ body{
   padding: 1px;
   margin: 2px;
 }
-
+.customdrop{
+  background-color: lightgrey;
+  width: 268px;
+  height:39px;
+  border: 1px solid red;
+  padding: 1px;
+  margin: 2px;
+}
 .contain2{
 	float: left;
 	width: 33%;
@@ -67,10 +74,10 @@ body{
   left: 250px;
   right: 0; 
   bottom: 70px;
-  color: blue;
+  color: teal;
   text-align: left;
   overflow: auto;
-  padding: 30px;
+  padding: 10px 70px;
 }
 
 #sidenav {
