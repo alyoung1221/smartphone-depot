@@ -7,6 +7,7 @@
 				<li> <a href="onlinesellordered.php">Online Sales</a></li>
 				<li> <a href="instoresell.php">In-store Sales</a></li>
 				<li> <a href="products.php">Products</a></li>
+				<li> <a href="addnewphonetype.php">Add New Phone Model</a></li>
 				<li> <a href="purchase.php">Purchase</a></li>
 				<li> <a href="expense.php">Expenses</a></li>
 				<li> <a href="stock.php">Stock</a></li>

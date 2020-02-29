@@ -47,6 +47,7 @@ if (isset($_GET['logout'])) {
 				<th>Product</th>
 				<th>Description</th>
 				<th>Phone Type</th>
+				<th>StorageGB</th>
 				<th>Colors</th>
 				<th>Grades</th>
 				<th>Qtys</th>
@@ -57,7 +58,7 @@ if (isset($_GET['logout'])) {
 				$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
 				$result = mysqli_query($connection, 
 				"SELECT idBasket,CustomerFName,customerLName,address,dtcreated,
-productname,description,phonetype,color,grade,qtys,idonlineSaleHistory
+productname,description,phonetype,storageGB,color,grade,qtys,idonlineSaleHistory
 FROM SP_phone_onlinesell_record;");
 				
 				while ($row = mysqli_fetch_row($result)) {
@@ -76,7 +77,8 @@ FROM SP_phone_onlinesell_record;");
 				<td><?php echo $row[9];?></td>
 				<td><?php echo $row[10];?></td>
 				<td><?php echo $row[11];?></td>
-				<td><a href="ordertobeprocess.php?idonlineSaleHistory=<?php echo $row[11]?>">Add to Process</a></td>
+				<td><?php echo $row[12];?></td>
+				<td><a href="ordertobeprocess.php?idonlineSaleHistory=<?php echo $row[12]?>">Add to Process</a></td>
 
 			</tr>
 			<?php
