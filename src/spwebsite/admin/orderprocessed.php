@@ -108,7 +108,7 @@ FROM SP_Online_orderprocess_record;");
 
 ?>
 <div>
-<a href="onlinesellordered.php">Go Back</a>
+<a href="packprocessorder.php">Go Back</a>
 </div>
 		</div>
 		<?php require 'includes/footer.php';?>
