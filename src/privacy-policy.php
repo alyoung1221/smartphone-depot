@@ -23,7 +23,7 @@
 				described in this statement.
 				<br><br>
 				
-				<b>Collection of your Personal Information</b><br>
+				<h4>Collection of your Personal Information</h4><br>
 				In order to better provide you with products and services offered on our Site, Smartphone Depot may collect
 				personally identifiable information, such as your:
 				<br>
@@ -41,7 +41,7 @@
 				and/or products you have requested from us. We also may gather additional personal or non-personal information in the future.
 				<br><br>
 				
-				<b>Use of your Personal Information</b><br>
+				<h4>Use of your Personal Information</h4><br>
 				Smartphone Depot collects and uses your personal information to operate its website(s) and deliver the services you have 
 				requested.
 				<br>
@@ -49,7 +49,7 @@
 				from Smartphone Depot and its affiliates.
 				<br><br>
 				
-				<b>Sharing Information with Third Parties</b><br>
+				<h4>Sharing Information with Third Parties</h4><br>
 				Smartphone Depot does not sell, rent or lease its customer lists to third parties.
 				<br>
 				Smartphone Depot may, from time to time, contact you on behalf of external business partners about a particular 
@@ -65,20 +65,20 @@
 				circumstances to protect the personal safety of users of Smartphone Depot, or the public.
 				<br><br>
 				
-				<b>Tracking User Behavior</b><br>
+				<h4>Tracking User Behavior</h4><br>
 				Smartphone Depot may keep track of the websites and pages our users visit within Smartphone Depot, in order to determine 
 				what Smartphone Depot services are the most popular. This data is used to deliver customized content and advertising within
 				Smartphone Depot to customers whose behavior indicates that they are interested in a particular subject area.
 				<br><br>
 				
-				<b>Automatically Collected Information</b><br>
+				<h4>Automatically Collected Information</h4><br>
 				Information about your computer hardware and software may be automatically collected by Smartphone Depot. This information 
 				can include: your IP address, browser type, domain names, access times and referring website addresses. This information is 
 				used for the operation of the service, to maintain quality of the service, and to provide general statistics regarding use 
 				of the Smartphone Depot website.
 				<br><br>
 
-				<b>Security of your Personal Information</b><br>
+				<h4>Security of your Personal Information</h4><br>
 				Smartphone Depot secures your personal information from unauthorized access, use, or disclosure. Smartphone Depot uses the 
 				following methods for this purpose:
 				<br>
@@ -94,18 +94,18 @@
 				of any and all information and data exchanged between you and us through this Site cannot be guaranteed.
 				<br><br>
 				
-				<b>Children Under Thirteen</b><br>
+				<h4>Children Under Thirteen</h4><br>
 				Smartphone Depot does not knowingly collect personally identifiable information from children under the age of thirteen. 
 				If you are under the age of thirteen, you must ask your parent or guardian for permission to use this website.
 				<br><br>
 				
-				<b>Opt-Out & Unsubscribe from Third Party Communications</b><br>
+				<h4>Opt-Out & Unsubscribe from Third Party Communications</h4><br>
 				We respect your privacy and give you an opportunity to opt-out of receiving announcements of certain information. Users 
 				may opt-out of receiving any or all communications from third-party partners of Smartphone Depot by contacting us here:
 				– Email: info@smartphone-depot.com
 				<br><br>
 
-				<b>E-mail Communications</b><br>
+				<h4>E-mail Communications</h4><br>
 				From time to time, Smartphone Depot may contact you via email for the purpose of providing announcements, promotional 
 				offers, alerts, confirmations, surveys, and/or other general communication. In order to improve our Services, we may receive
 				a notification when you open an email from Smartphone Depot or click on a link therein.
@@ -114,14 +114,14 @@
 				out of such communications by info@smartphone-depot.com.
 				<br><br>
 
-				<b>Changes to this Statement</b><br>
+				<h4>Changes to this Statement</h4><br>
 				Smartphone Depot reserves the right to change this Privacy Policy from time to time. We will notify you about significant
 				changes in the way we treat personal information by sending a notice to the primary email address specified in your account, 
 				by placing a prominent notice on our site, and/or by updating any privacy information on this page. Your continued use of the
 				Site and/or Services available through this Site after such modifications will constitute your: (a) acknowledgment of the 
 				modified Privacy Policy; and (b) agreement to abide and be bound by that Policy.<br><br>
 
-				<b> Contact Information</b><br>
+				<h4> Contact Information</h4><br>
 				Smartphone Depot welcomes your questions or comments regarding this Statement of Privacy. If you believe that Smartphone 
 				Depot has not adhered to this Statement, please contact Smartphone Depot at:
 				<br><br>
