@@ -7,13 +7,18 @@
 	<title>Contact Us | Smartphone Depot</title>
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
 	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+	<style>
+		.error {
+			border: 1.2px solid red !important;
+		}
+	</style>
 </head>
 <body>
 	<?php 
-		readfile("header.html");
+		readfile("header.php");
 	?>
 	<main>
-		<h1>Contact Us</h1>
+		<h1>Contact Us</h1><br><br><br>
 		<div class="flex-container">
 			<form method="post" id="contact">
 				<label for="name" class="hidden">Name</label>
@@ -59,9 +64,48 @@
 	?>
 	<script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
 	<script src="js/script.js"></script>
 	<script>
-		$("nav a:nth-of-type(4)").addClass("active");
+		/*$.validate({
+			borderColorOnError: "#ed0202", 
+			errorMessageClass:"hidden",
+		});*/
+		$("nav a:nth-of-type(6)").addClass("active");
+		$.validator.setDefaults({
+			submitHandler: function() {submitForm();}
+		});
+		$("#contact").validate({
+			rules: {
+				name: "required",
+				email: {
+					required: true,
+					email: true
+				},
+				subject: "required",
+				msg: "required"
+			}, 
+			highlight: function(input) {
+				$(input).addClass("error");
+			},
+			errorPlacement: function(error, element){}
+		});
+		$("#contact").submit(function(e) {
+			e.preventDefault();
+		});
+
+		function submitForm() {
+			var name = $("#name").val();
+			var email = $("#email").val();
+			var subject = $("#subject").val();
+			var msg = $("#msg").val();
+			$.post("actions.php", { 
+				name: name, email: email, subject: subject, msg: msg}, function(data) {
+				 $("#success").html(data);
+				 $("#contact")[0].reset();
+			});
+		}
 	</script>
 </body>
 </html>
