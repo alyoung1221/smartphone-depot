@@ -17,6 +17,7 @@
 					<a href="/contact-us">Contact Us</a>
 					<input type="search" id="search" placeholder="Search..." required title="Search website">										
 				</div>	
+				<!--User Bar-->
 				<div id="iconbar">
 					<a href="/my-account" class="material-icons acct" aria-label="My Account">person</a>
 					<a href="/cart" id="shopping-bag" aria-label="Cart"><span></span></a>
