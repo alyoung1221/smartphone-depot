@@ -36,31 +36,11 @@ if (isset($_GET['logout'])) {
 <div>
 		<?php require 'includes/sidenav.php';?>
 		<?php require 'includes/header.php';?>
-		<?php 
-	
-	$PhoneTypes = $_POST["phonetypeses"];
-	$phonetypesName = $_POST["phonetypename"];
-	
-	
-	$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
-
-	// create table sp_phonespos to hold the data
-
-	if (!@mysqli_query($connection, "INSERT INTO sp_phonetype (idphonetype,PhoneType, PhonetypeName) 
-		VALUES (null,'$PhoneTypes', '$phonetypesName')")) {
-		echo "Error doing Add new phone type";
-	} else {
-		$rows = mysqli_affected_rows($connection);
-		echo "Success, Add new $rows phone type";
-	}
 		
-	@mysqli_close($connection);
-		?>
 		<div id = "content">
-	
 		<h1>ADD New Phones Type</h1>
 		
-			<form method="post" action="addnewphonetype.php">
+			<form method="post" action="addnewphonetypeagain.php">
 	
 			<label for="formGroupExampleInput">Phone Type:</label></br>
 			<input class="form-control" type="text" name = "phonetypeses" id = "phonetypes" placeholder="Enter Phone Type"></br>

@@ -49,15 +49,15 @@ if (isset($_GET['logout'])) {
 		  <label for="formGroupExampleInput">Phone Type:</label></br>
 		 <?php
 				$columnPhonetype = "phonetype";
-				$columnPhoneName = "phonetypename";
+				$columnPhoneName = "PhonetypeName";
 				$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
 				$result = mysqli_query($connection, 
-				"SELECT * from Sp_phoneType");
+				"SELECT * from sp_phonetype");
 				
 				
 			?>
 <select class="customdrop" name = "phonetype">
-<option value="#">-Phone Type-Choose One-</option>
+<option value="#">-Choose One-</option>
 <?php while ($row = mysqli_fetch_array($result)) 
 {
 	
@@ -66,13 +66,17 @@ if (isset($_GET['logout'])) {
    echo "<option value='".$columnPhonetypes."'>$columnPhonetypeName</option>";
 }
   ?>
-</select></br>
+</select>
+<label for="inputstorage">Storage GB</label>
+      <input type="text" class="form-control" name = "storagegbs" id="inputstorage" placeholder="Storage GB">
+</br>
 			<?php
 				
 				
 				mysqli_free_result($result);
 				mysqli_close($connection);
 			?>
+	
 		 <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputcolor">Color</label>
