@@ -1,60 +1,136 @@
+<?php
+	require_once("spwebsite/users/config.php");	
+	
+	if (mysqli_query($link, "SELECT * FROM PHONES")) {				
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" query="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="X-UA-Compatible" query="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Inventory | Smartphone Depot</title>
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
 	<link rel="icon" href="images/favicon.png" type="image/x-icon">
 </head>
 <body>
-	<?php 
-		readfile("header.html");
-	?>
-	<main>
-		<form id="searchbar">
-			<input type="search" id="search" placeholder="Search. . ." required>
-		</form>
-		<table>
-			<thead>
-				<tr>
-					<th>Model<i class="fas fa-sort"></i></th>
-					<th>Price<i class="fas fa-sort"></i></th>
-					<!--<th>Colors<i class="fas fa-sort"></i></th>-->
-					<th>Status<i class="fas fa-sort"></i></th>
-					<th>Quantity<i class="fas fa-sort"></i></th>
-				</tr>
-			</thead>
-			<tbody>
-	<?php
-		$connection = mysqli_connect('helios.vse.gmu.edu','ayoung39','eesseg','ayoung39');
-			
-		if ($connection) {
-			if (mysqli_query($connection, "SELECT * FROM PHONES")) {				
-				$query = "SELECT PHONE_MODEL, ROUND(PHONE_PRICE, 0) AS PHONE_PRICE, PHONE_STATUS, PHONE_QUANTITY FROM PHONES";
-				$content = mysqli_query($connection, $query);
-				$phone = mysqli_fetch_assoc($content);
-				$products = ""; 
-				
-				while ($phone) {
-					$products .= "\t\t\t\t<tr>\n";
-					$products .= "\t\t\t\t\t<td><a href='https://smartphone-depot.com/product/iphone-6-2/'>$phone[PHONE_MODEL]</a></td>\n";
-					$products .= "\t\t\t\t\t<td>$$phone[PHONE_PRICE]</td>\n";
-					$products .= "\t\t\t\t\t<td>$phone[PHONE_STATUS]</td>\n";
-					$products .= "\t\t\t\t\t<td>$phone[PHONE_QUANTITY]</td>\n";
-					$products .= "\t\t\t\t</tr>\n";
-					$phone = mysqli_fetch_assoc($content);				
-				}
-				mysqli_free_result($content);
-			}
-		}
-		else {
-			die('A database connection could not be established. The error was: '.mysqli_connect_error());
-		}				
-		echo $products;
-		mysqli_close($connection);
-	?>
+  	<!--Header-->
+		<?php
+			readfile("header.php");
+		?>
+	<!--Main-->
+		<main>
+			<table>
+				<thead>
+					<tr>
+						<th>Model
+							<span class="fas fa-sort"></span>
+							<div>
+								<select name="model">
+									<option value="" selected disabled>--</option>
+									<?php 
+									$phones = mysqli_query($link, "SELECT P_MODEL FROM PHONES");
+									
+									while ($phone = mysqli_fetch_assoc($phones)) {
+										$model = $phone['P_MODEL'];
+										
+										echo "<option value='$model'>$model</option>";
+									}
+									?>
+								</select>
+							</div>
+						</th>
+						<th>Grade
+							<span class="fas fa-sort"></span>
+							<div>
+								<select name="grade">
+									<option value="" selected disabled>--</option>
+									<?php 
+									$phones = mysqli_query($link, "SELECT P_GRADE FROM PHONE_GRADES");
+									
+									while ($phone = mysqli_fetch_assoc($phones)) {
+										$grade = $phone['P_GRADE'];
+										
+										echo "<option value='$grade'>$grade</option>";
+									}
+									?>
+								</select>
+							</div>
+						</th>
+						<th>Storage Capacity
+							<span class="fas fa-sort" id="stg"></span>
+							<div>
+								<select name="storage">
+									<option value="" selected disabled>--</option>
+									<?php 
+									$phones = mysqli_query($link, "SELECT P_STG_SIZE FROM PHONE_STORAGE");
+									
+									while ($phone = mysqli_fetch_assoc($phones)) {
+										$storage = $phone['P_STG_SIZE'];
+										
+										echo "<option value='$storage'>$storage</option>";
+									}
+									?>
+								</select>
+							</div>
+						</th>
+						<th>Colors
+							<span class="fas fa-sort"></span>
+							<div>
+								<select name="colors">
+									<option value="" selected disabled>--</option>
+									<?php 
+									$phones = mysqli_query($link, "SELECT C_DESC FROM COLORS");
+									
+									while ($phone = mysqli_fetch_assoc($phones)) {
+										$color = $phone['C_DESC'];
+										
+										echo "<option value='$color'>$color</option>\n";
+									}
+									?>
+								</select>
+							</div>
+						</th>
+						<th>Quantity
+							<span class="fas fa-sort"></span>
+							<div>
+								<input type="search" id="isearch" placeholder="Search. . ." title="" required>
+							</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php
+					$products = ""; 
+					$phones = mysqli_query($link, "SELECT P_MODEL, P_GRADE, P_STG_SIZE, P_QUANTITY FROM PHONES, PHONE_OPTIONS AS OPTS, PHONE_STORAGE AS STG, PHONE_GRADES AS GRADES WHERE PHONES.P_ID = OPTS.P_ID AND OPTS.P_STG_ID = STG.P_STG_ID AND OPTS.P_GRADE_ID = GRADES.P_GRADE_ID ORDER BY OPTS.P_ID, P_GRADE, P_STG_SIZE");
+							
+						while ($phone = mysqli_fetch_assoc($phones)) {
+							$products .= "\t\t\t\t<tr>\n";
+							$products .= "\t\t\t\t\t\t<td>$phone[P_MODEL]</td>\n";
+							$products .= "\t\t\t\t\t\t<td>$phone[P_GRADE]</td>\n";
+							$products .= "\t\t\t\t\t\t<td>$phone[P_STG_SIZE]</td>\n";
+							$colors = "";
+							$i = 0;
+														
+							$query = mysqli_query($link, "SELECT DISTINCT(C_DESC) FROM PHONES, PHONE_OPTIONS, PHONE_COLORS, COLORS WHERE PHONE_OPTIONS.P_ID = PHONES.P_ID AND PHONE_COLORS.P_OPT_ID = PHONE_OPTIONS.P_ID AND PHONE_COLORS.C_ID = COLORS.C_ID");
+
+							while ($color = mysqli_fetch_assoc($query)) {
+								$colors .= strtolower("$color[C_DESC]");
+								$i++; 
+										
+								if ($i != mysqli_num_rows($query)) {
+									$colors .= ", ";
+								}
+							}
+							$products .= "\t\t\t\t\t\t<td>".ucfirst($colors)."</td>\n";
+							$products .= "\t\t\t\t\t\t<td>$phone[P_QUANTITY]</td>\n";
+							$products .= "\t\t\t\t\t</tr>\n";				
+						}				
+						echo $products;
+						mysqli_free_result($phones);
+					}			
+					mysqli_close($link);
+				?>
 			</tbody>
 		</table>
 	</main>
@@ -66,29 +142,29 @@
 	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	<script src="js/script.js"></script>
 	<script>
-		$("nav a:nth-of-type(3)").addClass("active");
+		$("nav a:nth-of-type(2)").addClass("active");
 		
 		var timeout = null; 
 
-		$("#search").keyup(function() {
+		$("#isearch").keyup(function() {
 			clearTimeout(timeout);
 			timeout = setTimeout(search, 500);
 			$("#clear").css("color", "#808080");
 		});
 		
-		$("#search").on("input", function() {
-			if ($("#search").val() === "") {
+		$("#isearch").on("input", function() {
+			if ($("#isearch").val() === "") {
 				displayTable();
 			}
 		});
-	
-		var sortButtons = document.getElementsByClassName("fa-sort");
 		
-		for (var i = 0; i < sortButtons.length; i++) {
+		for (var i = 0; i < $(".fa-sort").length; i++) {
 			handleClick(i); 
 			
 			function handleClick(index) {
-				sortButtons[index].addEventListener("click", function() {sort(index);}, false);
+				$(".fa-sort").eq(index).click(
+					function() {sort(index);
+				});
 			}
 		}
 	</script>
