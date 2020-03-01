@@ -13,7 +13,7 @@
 		readfile("header.html");
 	?>
 	<main>
-		<h1>Contact Us</h1><br><br><br>
+		<h1>Contact Us</h1>
 		<div class="flex-container">
 			<form method="post" id="contact">
 				<label for="name" class="hidden">Name</label>
