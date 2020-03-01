@@ -24,12 +24,19 @@
 		<div class="flex-container">
 		<?php 
 			if (mysqli_query($link, "SELECT * FROM PHONE_GRADES")) {	
-				$grades = mysqli_query($link, "SELECT * FROM PHONE_GRADES");
+				$gradeInfo = mysqli_query($link, "SELECT * FROM PHONE_GRADES");
 				
-				while ($grade = mysqli_fetch_assoc($grades)) {
+				while ($grade = mysqli_fetch_assoc($gradeInfo)) {
+					$grades = explode("\n", $grade['P_GRADE']);
 					$gradeDescs = explode("\n", $grade['P_GRADE_DESC']);
 					echo "\t<div>\n";
+					
+					foreach ($grades as $value) {
+						echo "\t\t\t\t<h4>Grade $value</h4>\n";
+					}
+					
 					echo "\t\t\t\t<ul>\n";
+					
 					foreach ($gradeDescs as $value) {
 						echo "\t\t\t\t\t<li>$value</li>\n";
 					}
@@ -47,6 +54,7 @@
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="js/script.js"></script>
 	<script>
+		$("nav a:nth-of-type(3)").addClass("active");
 	</script>
 </body>
 </html>
