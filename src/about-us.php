@@ -13,9 +13,9 @@
 		readfile("header.php");
 	?>
 	<main>
-		<section id="about">
-			<h1>About Us</h1><br><br><br>
-			<p>Smartphone Depot is a leader in electronic resellers that sells pre-owned smartphones, tablets, iPads and iWatch. At Smartphone Depot, we take pride 
+		<section id="about" class="info">
+			<h1>About Us</h1>
+			<p>Smartphone Depot is a leader in electronic resellers that sells pre-owned electronics. We sell pre-owned smartphones, tablets, iPads and iWatch. At Smartphone Depot, we take pride 
 			in our products. Our phones are sourced from a reliable supplier and throughly tested to ensure the quality of our products. Our passion for our products 
 			means our customers receive only the highest quality of products that are guaranteed to meet their needs. Most importantly, we believe shopping is a right, not a luxury.</p>
 			<br><br><br>

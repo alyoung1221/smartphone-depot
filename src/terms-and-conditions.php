@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Privacy Policy | Smartphone Depot</title>
+	<title>Terms and Conditions | Smartphone Depot</title>
 	<link href="/css/styles.css" rel="stylesheet" type="text/css">
 	<link rel="icon" href="/images/favicon.png" type="image/x-icon">
 </head>
@@ -13,8 +13,8 @@
 		readfile("header.php");
 	?>
 	<main>
-		<section>
-			<h1>Privacy Policy</h1>
+		<section class="info">
+			<h1>Terms and Conditions</h1>
 			<article id="tos">
 				<h4>Introduction</h4><br>
 				<p>Welcome to the Smartphone-Depot.com website (the “Site”). These terms & conditions (“Terms and Conditions”) 
