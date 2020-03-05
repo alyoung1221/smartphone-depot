@@ -981,6 +981,10 @@ button[type=submit]:hover {
 		#contactInfo div:not(:last-of-type) {
 			margin-bottom: 40px;
 		}
+		#contactInfo div:last-of-type, #contactInfo iframe {
+			height: 350px;		
+			width: 40vw;
+		}
 	}
 	@media screen and (max-width: 800px) {
 		.img-container {
