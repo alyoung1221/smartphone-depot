@@ -29,12 +29,13 @@
 								<select name="model">
 									<option value="" selected disabled>--</option>
 									<?php 
-									$phones = mysqli_query($link, "SELECT P_MODEL FROM PHONES");
+									$phones = mysqli_query($link, "SELECT P_MODEL, SUM(P_QUANTITY) AS SUM FROM PHONES, PHONE_OPTIONS WHERE PHONES.P_ID = PHONE_OPTIONS.P_ID");
 									
 									while ($phone = mysqli_fetch_assoc($phones)) {
 										$model = $phone['P_MODEL'];
+										$sum = $phone['SUM'])
 										
-										echo "<option value='$model'>$model</option>";
+										echo "<option value='$model'>$model ($sum)</option>\n";
 									}
 									?>
 								</select>
