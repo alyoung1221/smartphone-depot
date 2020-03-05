@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Home Website</title>
+<title>Instore Sale Page</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/bootstrap-4.3.1.css" rel="stylesheet">
@@ -38,30 +38,29 @@ if (isset($_GET['logout'])) {
 		<?php require 'includes/header.php';?>
 		<div id = "content">
 		
-		<h1>Ordered to be Process</h1>
+		<h1>Ordered (Instore) to be Process</h1>
 		<table border="1" width = 100%>
 			<tr padding: 5px;>
-				<th>Cart#</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Address</th>
-				<th>Ordered Date</th>
-				<th>Product</th>
+				<th>Sku#</th>
+				<th>IMEI</th>
+				<th>Phone Name</th>
 				<th>Description</th>
 				<th>Model</th>
-				<th>Storage</th>
-				<th>Colors</th>
-				<th>Grades</th>
-				<th>Qtys</th>
-				<th>ID</th>
+				<th>Storare</th>
+				<th>Phone Color</th>
+				<th>Grade</th>
+				<th>images</th>
+				<th>Price</th>
+				<th>Sale</th>
+				
 				
 			</tr>
 			<?php
+				$imeinumber = $_POST["imeinumbers"];
 				$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
 				$result = mysqli_query($connection, 
-				"SELECT idBasket,CustomerFName,customerLName,address,dtcreated,
-productname,description,phonetype,storageGB,color,grade,quantities,idonlineProcess
-FROM SP_Online_orderprocess_record;");
+				"SELECT * FROM SP_phonespos
+                 WHERE IMEI = '$imeinumber';");
 				
 				while ($row = mysqli_fetch_row($result)) {
 			?>
@@ -77,9 +76,8 @@ FROM SP_Online_orderprocess_record;");
 				<td><?php echo $row[7];?></td>
 				<td><?php echo $row[8];?></td>
 				<td><?php echo $row[9];?></td>
-				<td><?php echo $row[10];?></td>
-				<td><?php echo $row[11];?></td>
-				<td><?php echo $row[12];?></td>
+				<td><a href="orderprocessed.php?idphonepos=<?php echo $row[0]?>">Sale</a></td>
+				
 				
 
 			</tr>
