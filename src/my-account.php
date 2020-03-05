@@ -232,7 +232,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				</form>
 				<form method="post" id="register">
 					<fieldset>
-						<legend>Register<br><br>
+						<legend>Register</legend><br><br>
 						 <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
 							<label for="username">Email Address *</label>
 							<input type="email" id="username" name="email" placeholder="E-mail*" title="Please enter your e-mail." maxlength="60" required><br><br>
@@ -254,7 +254,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 							<label for="address">Address 1 *</label>
 							<input type="text" id="address" name="address" placeholder="Address" maxlength="50" value="<?php echo $address; ?>" required><br><br>
 							<label for="address2">Address 2</label>
-							<input type="text" id="address2" name="address" value="<?php echo $address2; ?>"placeholder="Address 2" maxlength="50" required><br><br>
+							<input type="text" id="address2" name="address" placeholder="Address 2" maxlength="50" required><br><br>
 							<label for="city">City *</label>
 							<input type="text" id="city" name="city" placeholder="City" maxlength="50" value="<?php echo $city; ?>" required><br><br>
 							<label>State: </label>
@@ -316,7 +316,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 							<br><br>
 							<label for="zip">Zip *</label>
 							<input type="text" id="zipcode" name="zip" placeholder="Zipcode" maxlength="50" value="<?php echo $zipcode; ?>" required><br><br>
-							<label for="country" data-validation="number" data-validation-allowing="range[10000;99999]" data-validation-error-msg="invalid zipcode ">County *</label> 
+							<label for="country" data-validation="number" data-validation-allowing="range[10000;99999]" data-validation-error-msg="invalid zipcode">Country<span class="required">*</span></label> 
 							<input type="text" id="country" name="country" placeholder="Country" maxlength="50" required><br><br>
 							<label for="phone">Phone *</label>
 							<input type="text" id="phone" name="phone" placeholder="Phone Number" maxlength="50" required><br><br>
@@ -339,15 +339,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			 
 		}// end onmodulesloaded
 	});// end validate module
-	$('#comment').restrictLength($('#maxlength'));
-
     </script>
 	<?php 
 		readfile("footer.html");
 	?>
 	<script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 	<script src="js/script.js"></script>
 	<script type="text/javascript">
 	</script>

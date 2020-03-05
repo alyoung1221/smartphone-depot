@@ -202,7 +202,7 @@
 		vertical-align: middle;
 		display: inline-block;
 		position: relative;  
-		background-color: #00AEEF;
+		background-color: #4DC9F7;
 		color: #FFF;
 		width: 22px;
 		height: 18px;  
@@ -219,7 +219,7 @@
 		border-radius: 3px;
 		z-index: -1;
 		height: 10px;
-		border: 2.5px solid #00AEEF;
+		border: 2.5px solid #4DC9F7;
 	}
 	#shopping-bag span {
 		vertical-align: middle;
@@ -270,7 +270,10 @@
 		display: inline-block;
 		width: 150px;
 	}
-
+	.required {
+		font-size: 1.4em;
+	}
+	
 /*Contact*/
 	#contact {
 		font-weight: 400;
