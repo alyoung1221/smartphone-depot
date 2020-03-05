@@ -49,7 +49,7 @@ if (isset($_GET['logout'])) {
 				<th>Ordered Date</th>
 				<th>Product</th>
 				<th>Description</th>
-				<th>Phone Type</th>
+				<th>Model</th>
 				<th>Colors</th>
 				<th>Grades</th>
 				<th>Qtys</th>

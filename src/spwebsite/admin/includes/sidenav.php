@@ -15,7 +15,7 @@
 			
 			<h2 class = "texts">Report</h2>
 			<ul class ="lab">
-				<li> <a href="#">Sales Report</a></li>
+				<li> <a href="salereport.php">Sales Report</a></li>
 				<li> <a href="#">Phone Purchase Report</a></li>
 				<li> <a href="#">Phone Payment Report</a></li>
 				<li> <a href="#">Sales Payment Report</a></li>

@@ -49,7 +49,7 @@ if (isset($_GET['logout'])) {
 				<th>Ordered Date</th>
 				<th>Product</th>
 				<th>Description</th>
-				<th>Phone Type</th>
+				<th>Model</th>
 				<th>StorageGB</th>
 				<th>Colors</th>
 				<th>Grades</th>
@@ -104,7 +104,7 @@ FROM SP_Online_orderprocess_record;");
 				<th>IMEI</th>
 				<th>Phone Name</th>
 				<th>Description</th>
-				<th>Phone Type</th>
+				<th>Model</th>
 				<th>StorageGB</th>
 				<th>Colors</th>
 				<th>Grades</th>

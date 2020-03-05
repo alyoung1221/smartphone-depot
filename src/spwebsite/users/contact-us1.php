@@ -1,14 +1,6 @@
 <!DOCTYPE HTML>
-<?php
-// Initialize the session
-session_start();
- 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: my-account.php");
-    exit;
-}
-?>
+
+
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -25,7 +17,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
 	<?php 
-		require 'header.php';
+		require 'header1.php';
 	?>
 	<main>
 		<section id="contactPg">

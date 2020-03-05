@@ -1,4 +1,14 @@
 <!DOCTYPE HTML>
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -9,10 +19,13 @@
 	<link rel="icon" href="images/favicon.png" type="image/x-icon">
 </head>
 <body>
-	<?php 
-		readfile("header1.php");
-	?>
+	<?php require 'header.php';?>
+	
+		<h2 style='color:red;'> <b><?php  echo "Hello, ", htmlspecialchars($_SESSION["firstname"]); ?></b></h2>
+		
 	<main>
+	 <a href="resetpassword.php" class="btn btn-warning">Reset Your Password</a>
+        <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
 	</main>
 	<?php 
 		readfile("footer.html");
