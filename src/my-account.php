@@ -30,18 +30,18 @@
 					<fieldset>
 						<legend>Register/legend<br><br>
 						<label for="email">Email Address *</label>
-						<input type="email" id="email" name="email" placeholder="E-mail*" title="Please enter your e-mail." maxlength="60"><br><br>
+						<input type="email" id="email" name="email" placeholder="E-mail*" title="Please enter your e-mail." maxlength="60" required><br><br>
 							<p> A password will be sent to your email address </p> <br><br>
 							<label for="fname">First Name *</label>
-							<input type="text" id="fname" name="fname" placeholder="First Name" maxlength="50"><br><br>
+							<input type="text" id="fname" name="fname" placeholder="First Name" maxlength="50" required><br><br>
 							<label for="lname">Last Name *</label>
-							<input type="text" id="lname" name="lname" placeholder="Last Name" maxlength="50"><br><br>
+							<input type="text" id="lname" name="lname" placeholder="Last Name" maxlength="50" required><br><br>
 							<label for="address">Address 1 *</label>
-							<input type="text" id="address" name="address" placeholder="Address" maxlength="50"><br><br>
+							<input type="text" id="address" name="address" placeholder="Address" maxlength="50" required><br><br>
 							<label for="address2">Address 2</label>
-							<input type="text" id="address" name="address" placeholder="Address 2" maxlength="50"><br><br>
+							<input type="text" id="address" name="address" placeholder="Address 2" maxlength="50" required><br><br>
 							<label for="city">City *</label>
-							<input type="text" id="city" name="city" placeholder="City" maxlength="50"><br><br>
+							<input type="text" id="city" name="city" placeholder="City" maxlength="50" required><br><br>
 							<label>State: </label>
 							<!--<input type="city" name="city" class="form-control" value="">-->
 							<select class="state" name = "state">
@@ -99,11 +99,11 @@
 									<option value = "WY">Wyoming </option>
 								</select><br><br>
 							<label for="zip">Zip *</label>
-							<input type="text" id="zip" name="zip" placeholder="Zipcode" maxlength="50"><br><br>
+							<input type="text" id="zip" name="zip" placeholder="Zipcode" maxlength="50" required><br><br>
 							<label for="country">County *</label> 
-							<input type="text" id="country" name="country" placeholder="Country" maxlength="50"><br><br>
+							<input type="text" id="country" name="country" placeholder="Country" maxlength="50" required><br><br>
 							<label for="phone">Phone *</label>
-							<input type="text" id="phone" name="phone" placeholder="Phone Number" maxlength="50"><br><br>
+							<input type="text" id="phone" name="phone" placeholder="Phone Number" maxlength="50" required><br><br>
 							<p>Your personal data will be used to support your experience throughout this website,
 							to manage access to your account, and for other purposes as described in our <a href="privacy-policy.html">privacy policy</a>.</p><br>
 							<button type="submit" name="register">Register</button>
