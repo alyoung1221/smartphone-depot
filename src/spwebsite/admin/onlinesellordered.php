@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Website Layout</title>
+<title>Online | Process</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/bootstrap-4.3.1.css" rel="stylesheet">
@@ -63,7 +63,7 @@ if (isset($_GET['logout'])) {
 			<td> 
 				<h2>Process Ordered</h2>
 				<a href="#" style="color: White;" >Advanced Search</a></br></br>
-				<label>Order tobe Process :(<?php $connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
+				<label>Order To Be Processed :(<?php $connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
 				$result = mysqli_query($connection, 
 				"select count(*) FROM SP_Online_orderprocess_record;");
 				while ($row = mysqli_fetch_row($result)){

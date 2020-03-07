@@ -18,6 +18,7 @@ if (isset($_GET['logout'])) {
 <title>CSS Website Layout</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap-4.3.1.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
 </head>
 <body>

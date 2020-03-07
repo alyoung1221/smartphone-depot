@@ -1,3 +1,3 @@
-<div id = "footer"> <p>@SamrtPhone Depot</p>
-						<p> copyright ! SmartPhone Depot</p>
+<div id = "footer"> <p>@SmartPhone Depot</p>
+						<p> copyright © SmartPhone Depot</p>
 			</div>

@@ -15,11 +15,12 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Home Website</title>
+<title>Instore Sale Page</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/bootstrap-4.3.1.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+
 </head>
 <body>
 <?php if (isset($_SESSION['success'])) : ?>
@@ -34,14 +35,32 @@ if (isset($_GET['logout'])) {
 		<?php endif ?>
 <div>
 		<?php require 'includes/sidenav.php';?>
-		
 		<?php require 'includes/header.php';?>
 		<div id = "content">
 		
-		<h1>Home Page</h1></br>
-		<label for="inputHelpBlock">Scan/Enter IMEI Number</label></br>
-		<input type="text" id="inputHelpBlock" class="form-control"placeholder="Scan/Enter IMEI Number"></br>
-		<button type="button" class="btn btn-primary">Search</button>
+		<h1>Ordered (Instore) to be Process</h1>
+				<?php
+
+	$idphoneposed = $_GET["idphonepos"];
+	//$username = $_GET["adminUsername"];
+	
+	$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
+
+
+		if (!@mysqli_query($connection, "DELETE FROM SP_phonespos WHERE idphonepos ='$idphoneposed'")) {
+		echo "Fail to pack the ordered to process. please try again";
+	} else {
+		$rows = mysqli_affected_rows($connection);
+		echo "Success Pack  $rows Phones";
+		
+	}
+		
+	@mysqli_close($connection);
+
+?>
+<div>
+<a href="packprocessorder.php">Go Back</a>
+</div>
 		</div>
 		<?php require 'includes/footer.php';?>
 </div>

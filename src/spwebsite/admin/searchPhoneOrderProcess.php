@@ -230,6 +230,7 @@ FROM SP_Online_orderprocess_record;");
 				mysqli_close($connection);
 			?>
 			</table>
+			
 		</div>
 		<?php require 'includes/footer.php';?>
 </div>

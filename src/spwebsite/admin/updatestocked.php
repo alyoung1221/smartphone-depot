@@ -38,53 +38,43 @@ if (isset($_GET['logout'])) {
 		<div id = "content">
 		
 		<h1>Update Stock</h1>
-		
-		
-		<table border="1" width = 100%>
-			<tr padding: 5px;>
-				
-				<th>Sku#</th>
-				<th>Phone Name</th>
-				<th>Description</th>
-				<th>Model</th>
-				<th>StorageDB</th>
-				<th>grade</th>
-				<th>price</th>
-				<th>Quantity</th>
-				<th>Update</th>
-				
-				
-			</tr>
-			<?php
+		<?php
+	$quantities = $_POST["quantity"];
+	
+				$phoneID = $_GET["idSmartphones"];
 				$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
 				$result = mysqli_query($connection, 
 				"SELECT idSmartphones,Productname,Description,PhoneType,StorageGB,grade,price, stock
-				FROM sp_phones;");
-				
-				while ($row = mysqli_fetch_row($result)) {
-			?>
-			<tr>
-				
-				<td><?php echo $row[0];?></td>
-				<td><?php echo $row[1];?></td>
-				<td><?php echo $row[2];?></td>
-				<td><?php echo $row[3];?></td>
-				<td><?php echo $row[4];?></td>
-				<td><?php echo $row[5];?></td>
-				<td><?php echo $row[6];?></td>
-				<td><?php echo $row[7];?></td>
-				<td><a href="updatestock.php?idSmartphones=<?php echo $row[0]?>">Edit</a></td>
+				FROM sp_phones
+				WHERE idSmartphones = '$phoneID';");
+	
 
-				
-				
-
-			</tr>
-			<?php
-				
-				}
-				mysqli_free_result($result);
-				mysqli_close($connection);
-			?>
+	if (!@mysqli_query($connection, "UPDATE sp_phones SET stock = $quantities WHERE idSmartphones ='$phoneID'")) 
+	{
+		echo "Error doing update";
+	} 
+	else 
+	{
+		$rows = mysqli_affected_rows($connection);
+		echo "Success, update $rows Phone's Quantity";
+	}
+		
+	@mysqli_close($connection);
+?>
+		<?php $connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
+	$nameUser =  $_SESSION['user']['adminUsername'];
+	
+		if (!@mysqli_query($connection, "INSERT INTO SP_trans_log values (null,'$nameUser', SYSDATE(),'this user manualy updated stock quantity of phones ID :$phoneID')")) {
+		//echo "Fail to add user action into logs. please try again";
+	} else {
+		$rows = mysqli_affected_rows($connection);
+		
+		
+	}
+		
+	@mysqli_close($connection);?>
+		<a href="stock.php">Go Back</a>
+		
 		</div>
 		<?php require 'includes/footer.php';?>
 </div>

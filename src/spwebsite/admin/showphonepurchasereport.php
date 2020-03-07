@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Website Layout</title>
+<title>Items Report</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
@@ -50,9 +50,9 @@ if (isset($_GET['logout'])) {
 		<?php require 'includes/header.php';?>
 		<div id = "content">
 		
-		<h1>Sale Report</h1>
+		<h1>Expense Report</h1>
 		
-			<form method="post" action="showsalereport.php">
+			<form method="post" action="showexpensereport.php">
 	
 			<label for="dateinput">From:</label></br>
 			<input class="form-control" type="text" name = "dateinput" id = "datepicker" placeholder="From Date"></br>
@@ -65,17 +65,14 @@ if (isset($_GET['logout'])) {
   <button type="submit" class="btn btn-info">Report</button> </br>
   <table border="1" width = 100%>
 			<tr padding: 5px;>
-				
-				<th>IMEI#</th>
-				<th>Phone Name</th>
-				<th>Storage GB</th>
-				<th>Model</th>
-				<th>Phone Color</th>
-				<th>Grade</th>
-				<th>Price</th>
-				<th>Date Sold</th>
-				<th>Action</th>
-				
+				<th>Number</th>
+				<th>Customer Name</th>
+				<th>Invoice</th>
+				<th>Description</th>
+				<th>Quantity </th>
+				<th>Total Due</th>
+				<th>Status </th>
+				<th>Date</th>
 				
 			</tr>
 			<?php
@@ -87,10 +84,9 @@ if (isset($_GET['logout'])) {
 				$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
 				
 				$result = mysqli_query($connection, 
-				"SELECT idSmartPhones, ProductName, storageGB, PhoneType, sphonecolor, grade, price, datesold, actionTaken
-				FROM SP_phone_sales_history
+				"SELECT idpurchase, name, invoice, description,quantity,totaldue,status, currentdate
+				FROM sp_purchasevendor
 				WHERE CAST(currentdate AS DATE) BETWEEN '$newstartdate' AND '$newenddate';");
-				
 				while ($row = mysqli_fetch_row($result)) {
 			?>
 			<tr>
@@ -103,30 +99,10 @@ if (isset($_GET['logout'])) {
 				<td><?php echo $row[5];?></td>
 				<td><?php echo $row[6];?></td>
 				<td><?php echo $row[7];?></td>
-				<td><?php echo $row[8];?></td>
-				
-				
-				
-
 			</tr>
 			<?php
 				
 				}
-				$result1 = mysqli_query($connection, 
-				"SELECT SUM(price)
-				FROM SP_phone_sales_history
-				WHERE CAST(currentdate AS DATE) BETWEEN '$newstartdate' AND '$newenddate';");
-				$rowes = mysqli_fetch_row($result1);
-				
-				$result2 = mysqli_query($connection, 
-				"SELECT count(idsalehistory)
-				FROM SP_phone_sales_history
-				WHERE CAST(currentdate AS DATE) BETWEEN '$newstartdate' AND '$newenddate';");
-				$rowess = mysqli_fetch_row($result2);
-				
-				echo "Total Number of Phone Sale in $startdate and $enddate is : ", $rowess[0];?> </br><?php
-				echo "Total Sales : $", $rowes[0];
-				
 				
 				mysqli_free_result($result);
 				mysqli_close($connection);

@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Website Layout</title>
+<title>Add new Purchase</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
@@ -36,26 +36,33 @@ if (isset($_GET['logout'])) {
 <div>
 		<?php require 'includes/sidenav.php';?>
 		<?php require 'includes/header.php';?>
+		<?php 
+	$customername = $_POST["customername"];
+	$invoice = $_POST["invoice"];
+	
+	$description = $_POST["description"];
+	$quantity = $_POST["quantity"];
+	$total = $_POST["total"];
+	
+	$status = $_POST["status"];
+	
+	$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
+
+	// create table sp_phonespos to hold the data
+
+	if (!@mysqli_query($connection, "INSERT INTO sp_purchasevendor (idpurchase, name, invoice, description,quantity,totaldue,status, currentdate) 
+		VALUES (null,'$customername', $invoice, '$description', $quantity, $total,'$status',  SYSDATE() )")) {
+		echo "Error doing Add new invoice customers";
+	} else {
+		$rows = mysqli_affected_rows($connection);
+		echo "Success, Add new $rows customers vendor";
+	}
+		
+	@mysqli_close($connection);
+		?>
 		<div id = "content">
+		<h2> New Purchase Added</h2>
 		
-		<h1>ADD New Expense</h1>
-		
-			<form method="post" action="addnewexpense.php">
-	
-			<label for="formGroupExampleInput">Expense:</label></br>
-			<input class="form-control" type="text" name = "expense" id = "expensed" placeholder="Enter Expensed"></br>
-		  <label for="formGroupExampleInput">Description:</label></br>
-			<input type="text" class="form-control" name ="description" placeholder="Description"></br>
-		  <label for="formGroupExampleInput">ToTal:</label></br>
-		<input type="text" class="form-control" name ="total" placeholder="Total Expense"></br>
-
-
-</br>
-			
-	
-	
-  <button type="submit" class="btn btn-info">Add New Expense</button>
-</form>
 
 		</div>
 		<?php require 'includes/footer.php';?>

@@ -56,7 +56,7 @@ body{
 	margin-top: 5px;
 }
 #header{
-  background-color:#494343;
+  background-color:#24A2E3;
   position: fixed;
   top: 0;
   left:250px;
@@ -171,7 +171,7 @@ input[type=text], input[type=password],input[type=email] {
 
 
 @media (max-width: 580px) {
-#header{
+#header12{
 	
 	background-color:red;
 	width:100%;

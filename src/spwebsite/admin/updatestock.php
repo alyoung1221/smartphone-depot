@@ -43,7 +43,7 @@ if (isset($_GET['logout'])) {
 		<table border="1" width = 100%>
 			<tr padding: 5px;>
 				
-				<th>Sku#</th>
+				<th>ID#</th>
 				<th>Phone Name</th>
 				<th>Description</th>
 				<th>Model</th>
@@ -56,12 +56,14 @@ if (isset($_GET['logout'])) {
 				
 			</tr>
 			<?php
+				$phoneID = $_GET["idSmartphones"];
 				$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
 				$result = mysqli_query($connection, 
 				"SELECT idSmartphones,Productname,Description,PhoneType,StorageGB,grade,price, stock
-				FROM sp_phones;");
+				FROM sp_phones
+				WHERE idSmartphones = '$phoneID';");
 				
-				while ($row = mysqli_fetch_row($result)) {
+				$row = mysqli_fetch_row($result)
 			?>
 			<tr>
 				
@@ -72,16 +74,17 @@ if (isset($_GET['logout'])) {
 				<td><?php echo $row[4];?></td>
 				<td><?php echo $row[5];?></td>
 				<td><?php echo $row[6];?></td>
-				<td><?php echo $row[7];?></td>
-				<td><a href="updatestock.php?idSmartphones=<?php echo $row[0]?>">Edit</a></td>
-
+				<form action = "updatestocked.php?idSmartphones=<?php echo $row[0]?>" method = "POST"><td><input type="text" name="quantity" value="<?php echo $row[7];?>"/></td>
+				
+				<td><input type="submit" value="Update" /></td>
+				</form>
 				
 				
 
 			</tr>
 			<?php
 				
-				}
+				
 				mysqli_free_result($result);
 				mysqli_close($connection);
 			?>
