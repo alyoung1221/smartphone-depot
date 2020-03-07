@@ -10,9 +10,12 @@
 </head>
 <body>
 	<?php 
-		readfile("header.html");
+		readfile("header.php");
 	?>
 	<main>
+		<section>
+			<h1>{Page Title}</h1>
+		</section>
 	</main>
 	<?php 
 		readfile("footer.html");

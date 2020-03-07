@@ -119,7 +119,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	</div>
 
 <div class="col-md-8">    
-	<h1>Hi, <b><?php echo htmlspecialchars($_SESSION["firstname"]); ?></b></h1>
+	<h1>Hello, <b><?php echo htmlspecialchars($_SESSION["firstname"]); ?></b></h1>
    <h3>What is always coming, but never arrives?</h3>
 <form>
 	<label>input the answer:</label><input type="text" id="useranswer">

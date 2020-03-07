@@ -34,6 +34,7 @@ if (isset($_GET['logout'])) {
 		<?php endif ?>
 <div>
 		<?php require 'includes/sidenav.php';?>
+		
 		<?php require 'includes/header.php';?>
 		<div id = "content">
 		

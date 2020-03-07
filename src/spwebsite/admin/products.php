@@ -93,6 +93,7 @@ if (isset($_GET['logout'])) {
   </div>
   <button type="submit" class="btn btn-info">Add To Inventory</button>
 </form>
+
 		</div>
 		<?php require 'includes/footer.php';?>
 </div>

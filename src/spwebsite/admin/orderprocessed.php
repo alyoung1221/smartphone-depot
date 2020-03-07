@@ -16,7 +16,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Home Website</title>
+<title>Ordered To be Processed</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/bootstrap-4.3.1.css" rel="stylesheet">
@@ -39,7 +39,7 @@ if (isset($_GET['logout'])) {
 		<?php require 'includes/header.php';?>
 		<div id = "content">
 		
-		<h1>Ordered to be Process</h1>
+		<h1>Ordered to be Processed</h1>
 		<table border="1" width = 100%>
 			<tr padding: 5px;>
 				<th>Cart#</th>
@@ -49,7 +49,7 @@ if (isset($_GET['logout'])) {
 				<th>Ordered Date</th>
 				<th>Product</th>
 				<th>Description</th>
-				<th>Phone Type</th>
+				<th>Model</th>
 				<th>Colors</th>
 				<th>Grades</th>
 				<th>Qtys</th>
@@ -105,9 +105,21 @@ FROM SP_Online_orderprocess_record;");
 	}
 		
 	@mysqli_close($connection);
-
+	
 ?>
 <div>
+	<?php $connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
+	$nameUser =  $_SESSION['user']['adminUsername'];
+	
+		if (!@mysqli_query($connection, "INSERT INTO SP_trans_log values (null,'$nameUser', SYSDATE(),'this user processed sale for Cart# : ')")) {
+		//echo "Fail to add user action into logs. please try again";
+	} else {
+		$rows = mysqli_affected_rows($connection);
+		
+		
+	}
+		
+	@mysqli_close($connection);?>
 <a href="packprocessorder.php">Go Back</a>
 </div>
 		</div>

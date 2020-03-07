@@ -18,6 +18,7 @@ if (isset($_GET['logout'])) {
 <title>CSS Website Layout</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap-4.3.1.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
 </head>
 <body>
@@ -36,9 +37,54 @@ if (isset($_GET['logout'])) {
 		<?php require 'includes/header.php';?>
 		<div id = "content">
 		
-		<h1>stock Page</h1>
-		<p>the Search Bar and the page will be displayed phones</p>
-		<a href="index.php?logout='1'" style="color: red;">logout</a>
+		<h1>Update Stock</h1>
+		
+		
+		<table border="1" width = 100%>
+			<tr padding: 5px;>
+				
+				<th>Sku#</th>
+				<th>Phone Name</th>
+				<th>Description</th>
+				<th>Model</th>
+				<th>StorageDB</th>
+				<th>grade</th>
+				<th>price</th>
+				<th>Quantity</th>
+				<th>Update</th>
+				
+				
+			</tr>
+			<?php
+				$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
+				$result = mysqli_query($connection, 
+				"SELECT idSmartphones,Productname,Description,PhoneType,StorageGB,grade,price, stock
+				FROM sp_phones;");
+				
+				while ($row = mysqli_fetch_row($result)) {
+			?>
+			<tr>
+				
+				<td><?php echo $row[0];?></td>
+				<td><?php echo $row[1];?></td>
+				<td><?php echo $row[2];?></td>
+				<td><?php echo $row[3];?></td>
+				<td><?php echo $row[4];?></td>
+				<td><?php echo $row[5];?></td>
+				<td><?php echo $row[6];?></td>
+				<td><?php echo $row[7];?></td>
+				<td><a href="updatestock.php?idSmartphones=<?php echo $row[0]?>">Edit</a></td>
+
+				
+				
+
+			</tr>
+			<?php
+				
+				}
+				mysqli_free_result($result);
+				mysqli_close($connection);
+			?>
 		</div>
 		<?php require 'includes/footer.php';?>
 </div>

@@ -71,30 +71,36 @@ if (isset($_GET['logout'])) {
 		  <label for="formGroupExampleInput">Phone Name:</label></br>
 			<input type="text" class="form-control" name ="phonename" placeholder="phone name"></br>
 		  <label for="formGroupExampleInput">Phone Type:</label></br>
-		 
+		 <?php
+				$columnPhonetype = "phonetype";
+				$columnPhoneName = "PhonetypeName";
+				$connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
+				$result = mysqli_query($connection, 
+				"SELECT * from sp_phonetype");
+				
+				
+			?>
 <select class="customdrop" name = "phonetype">
-<option value="#">-Phone Type-Choose One-</option>
-   <option value="iphoneX64orange">iphoneX-64GB-orange</option>
-  <option value="iphoneX64green">iphoneX-64GB-green</option>
-  <option value="iphoneX64yellow">iphoneX 64GB yellow</option>
-  <option value="iphoneX128orange">iphoneX-128GB-orange</option>
-  <option value="iphoneX128green">iphoneX-128GB-green</option>
-   <option value="iphoneX128yellow">iphoneX-128GB-yellow</option>
-  <option value="iphoneX256orange">iphoneX-256GB-orange</option>
-  <option value="iphoneX256green">iphoneX-256GB-green</option>
-  <option value="iphoneX256yellow">iphoneX-256GB-yellow</option>
-  <option value="iphoneXS64orange">iphoneXS-64Gb-orange</option>
-   <option value="iphoneXS64green">iphoneXS-64Gb-green</option>
-  <option value="iphoneXS64yellow">iphoneXS-64Gb-yellow</option>
-  <option value="iphoneXS128orange">iphoneXS-128Gb-orange</option>
-  <option value="iphoneXS128green">iphoneXS-128Gb-green</option>
-  <option value="iphoneXS128yellow">iphoneXS-128Gb-yellow</option>
-   <option value="iphoneXS256orange">iphoneXS-256Gb-orange</option>
-  <option value="iphoneXS256green">iphoneXS-256Gb-green</option>
-  <option value="iphoneXS256yellow">iphoneXS-256Gb-yellow</option>
-  <option value="iphoneXR64orange">iphoneXR-64Gb-orange</option>
-  <option value="iphoneXR64green">iphoneXR-64Gb-green</option>
-</select></br>
+<option value="#">-Choose One-</option>
+<?php while ($row = mysqli_fetch_array($result)) 
+{
+	
+	$columnPhonetypeName = $row["$columnPhoneName"];
+	$columnPhonetypes = $row["$columnPhonetype"];
+   echo "<option value='".$columnPhonetypes."'>$columnPhonetypeName</option>";
+}
+  ?>
+</select>
+<label for="inputstorage">Storage GB</label>
+      <input type="text" class="form-control" name = "storagegbs" id="inputstorage" placeholder="Storage GB">
+</br>
+			<?php
+				
+				
+				mysqli_free_result($result);
+				mysqli_close($connection);
+			?>
+	
 		 <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputcolor">Color</label>
@@ -111,6 +117,18 @@ if (isset($_GET['logout'])) {
   </div>
   <button type="submit" class="btn btn-info">Add To Inventory</button>
 </form>
+<?php $connection = @mysqli_connect("localhost", "root", "", "smartphonedepotdb") or die("cannot connect");
+	$nameUser =  $_SESSION['user']['adminUsername'];
+	
+		if (!@mysqli_query($connection, "INSERT INTO SP_trans_log values (null,'$nameUser', SYSDATE(),'this user Add a new Phone: imei# : $IMEI')")) {
+		//echo "Fail to add user action into logs. please try again";
+	} else {
+		$rows = mysqli_affected_rows($connection);
+		
+		
+	}
+		
+	@mysqli_close($connection);?>
 		</div>
 		<?php require 'includes/footer.php';?>
 </div>

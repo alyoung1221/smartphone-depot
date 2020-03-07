@@ -15,10 +15,11 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Website Layout</title>
+<title>Instore Sale</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+<link href="css/bootstrap-4.3.1.css" rel="stylesheet">
 </head>
 <body>
 <?php if (isset($_SESSION['success'])) : ?>
@@ -36,8 +37,14 @@ if (isset($_GET['logout'])) {
 		<?php require 'includes/header.php';?>
 		<div id = "content">
 		
-		<h1>instore Page</h1>
-		<a href="index.php?logout='1'" style="color: red;">logout</a>
+		<h1>Instore Sale</h1>
+		<form class="form-group" method="post" action="showinstoresale.php">
+				</br></br>
+				<label for="formGroupExampleInput">Phone lookup</label></br>
+				<input class="form-control" type="text" name = "imeinumbers" id = "imeiNum" placeholder="Scan/Enter IMEI number">
+				<button type="submit" class="btn btn-info">Search</button>
+				
+			</form>
 		</div>
 		<?php require 'includes/footer.php';?>
 </div>

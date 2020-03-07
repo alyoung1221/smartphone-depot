@@ -15,16 +15,16 @@
 			
 			<h2 class = "texts">Report</h2>
 			<ul class ="lab">
-				<li> <a href="#">Sales Report</a></li>
-				<li> <a href="#">Phone Purchase Report</a></li>
+				<li> <a href="salereport.php">Sales Report</a></li>
+				<li> <a href="phonepurchasereport.php">Phone Purchase Report</a></li>
 				<li> <a href="#">Phone Payment Report</a></li>
 				<li> <a href="#">Sales Payment Report</a></li>
-				<li> <a href="#">Expense Report</a></li>
+				<li> <a href="expensereport.php">Expense Report</a></li>
 				<li> <a href="#">Customer Statment</a></li>
 				<li> <a href="#">Profit/Loss Report</a></li>
 				<li> <a href="#">Tax Report</a></li>
-				<li> <a href="#">Stock Report</a></li>
-				<li> <a href="#">Items Report</a></li>
-				<li> <a href="#">Customer Statment</a></li>
+				<li> <a href="stockreport.php">Stock Report</a></li>
+				<li> <a href="itemsreport.php">Items Report</a></li>
+				<li> <a href="useractivityReport.php">User Activity Report</a></li>
 			</ul>
 		</div>

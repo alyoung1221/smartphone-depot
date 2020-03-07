@@ -1,14 +1,4 @@
 <!DOCTYPE HTML>
-<?php
-// Initialize the session
-session_start();
- 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
-?>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -20,11 +10,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
 	<?php 
-		readfile("header.html");
+		readfile("header1.php");
 	?>
 	<main>
-	 <a href="resetpassword.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
 	</main>
 	<?php 
 		readfile("footer.html");
