@@ -5,12 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Privacy Policy | Smartphone Depot</title>
+	<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet" type="text/css">
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
-	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+	<link rel="icon" href="assets/favicon.png" type="image/x-icon">
 </head>
 <body>
 	<?php 
-		readfile("header.php");
+		include("components/header.php");
 	?>
 	<main>
 		<section id="pp" class="info">
@@ -21,10 +22,9 @@
 				include www.smartphone-depot.com and Smartphone Depot. The Smartphone Depot website is a Ecommerce site. By using the Smartphone Depot website, 
 				you consent to the data practices described in this statement.</p>
 				<br><br>
-				
 				<h4>Collection of your Personal Information</h4><br>
-				In order to better provide you with products and services offered on our Site, Smartphone Depot may collect
-				personally identifiable information, such as your:
+				<p>In order to better provide you with products and services offered on our Site, Smartphone Depot may collect
+				personally identifiable information, such as your:</p>
 				<br>
 					<ul>
 						<li>First and Last Name</li>
@@ -32,7 +32,6 @@
 						<li>E-mail Address</li>
 						<li>Phone Number</li>
 					</ul>
-				</p>
 				<br>
 				<p>We do not collect any personal information about you unless you voluntarily provide it to us. However, you may
 				be required to provide certain personal information to us when you elect to use certain products or services available 
@@ -42,17 +41,15 @@
 				on our Site. To wit, we will use your information for, but not limited to, communicating with you in relation to services 
 				and/or products you have requested from us. We also may gather additional personal or non-personal information in the future.</p>
 				<br><br>
-				
-				<h4>Use of your Personal Information</h4><br>
-				Smartphone Depot collects and uses your personal information to operate its website(s) and deliver the services you have 
-				requested.
+				<h4>Use of Your Personal Information</h4><br>
+				<p>Smartphone Depot collects and uses your personal information to operate its website(s) and deliver the services you have 
+				requested.</p>
 				<br>
 				<p>Smartphone Depot may also use your personally identifiable information to inform you of other products or services available 
 				from Smartphone Depot and its affiliates.</p>
 				<br><br>
-				
 				<h4>Sharing Information with Third Parties</h4><br>
-				Smartphone Depot does not sell, rent or lease its customer lists to third parties.
+				<p>Smartphone Depot does not sell, rent or lease its customer lists to third parties.</p>
 				<br>
 				<p>Smartphone Depot may, from time to time, contact you on behalf of external business partners about a particular 
 				offering that may be of interest to you. In those cases, your unique personally identifiable information (e-mail, name, 
@@ -66,13 +63,11 @@
 				Smartphone Depot or the site; (b) protect and defend the rights or property of Smartphone Depot; and/or (c) act under exigent
 				circumstances to protect the personal safety of users of Smartphone Depot, or the public.</p>
 				<br><br>
-				
 				<h4>Tracking User Behavior</h4><br>
 				Smartphone Depot may keep track of the websites and pages our users visit within Smartphone Depot, in order to determine 
 				which Smartphone Depot services are the most popular. This data is used to deliver customized content and advertising within
 				Smartphone Depot to customers whose behavior indicates that they are interested in a particular subject area.
 				<br><br>
-				
 				<h4>Automatically Collected Information</h4><br>
 				Information about your computer hardware and software may be automatically collected by Smartphone Depot. This information 
 				can include: your IP address, browser type, domain names, access times and referring website addresses. This information is 
@@ -118,32 +113,32 @@
 				modified Privacy Policy; and (b) agreement to abide and be bound by that Policy.</p><br><br>
 				<h4> Contact Information</h4><br>
 				<p>Smartphone Depot welcomes your questions or comments regarding this Statement of Privacy. If you believe that Smartphone 
-				Depot has not adhered to this Statement, please contact Smartphone Depot at:
+				Depot has not adhered to this Statement, please contact Smartphone Depot at:</p>
+				<br><br>
+				<address>
+					Smartphone Depot Inc<br>
+					2735 Hartland Rd #303<br>
+					Falls Church, Virginia 22043
 					<br><br>
-					<address>
-						Smartphone Depot Inc<br>
-						2735 Hartland Rd #303<br>
-						Falls Church, Virginia 22043
-						<br><br>
-						Email Address:<br>
-						<a href="mailto:info@smartphone-depot.com">info@smartphone-depot.com</a>
-						<br><br>
-						Telephone number:<br>
-						<a href="tel:15715294022">+1 (571) 529-4022</a>
-						<br><br>
-						Effective as of January 29, 2020
-					</address>
-				</p>
+					Email Address:<br>
+					<a href="mailto:info@smartphone-depot.com">info@smartphone-depot.com</a>
+					<br><br>
+					Telephone Number:<br>
+					<a href="tel:15715294022">+1 (571) 529-4022</a>
+					<br><br>
+					Effective as of January 29, 2020
+				</address>
 			</article>
 		</section>
 	</main>
+	<!--Footer-->
 	<?php 
-		readfile("footer.html");
+		readfile("components/footer.html");
 	?>
-	<script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
-	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="js/script.js"></script>
-	<script>
-	</script>
+	
+	<!--Scripts-->
+	<?php 
+		readfile("js/scripts.html");
+	?>
 </body>
 </html>
