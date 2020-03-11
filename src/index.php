@@ -2,25 +2,34 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" query="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="X-UA-Compatible" query="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Smartphone Depot</title>
+	<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet" type="text/css">
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
 	<link rel="icon" href="images/favicon.png" type="image/x-icon">
 </head>
 <body>
+  	<!--Header-->
 	<?php 
-		readfile("header.html");
+		include("components/header.php");
 	?>
+
+	<!--Main-->
 	<main>
+		<section>
+			<h1>{Page Title}</h1>
+		</section>
 	</main>
+	
+	<!--Footer-->
 	<?php 
-		readfile("footer.html");
+		readfile("components/footer.html");
 	?>
-	<script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
-	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="js/script.js"></script>
-	<script>
-	</script>
+	
+	<!--Scripts-->
+	<?php 
+		readfile("js/scripts.html");
+	?>
 </body>
 </html>
