@@ -10,7 +10,11 @@
 			<nav class="menu-content">
 				<div class="menu-links">
 					<a href="/" class="mobile">Home</a>
-					<a href="/inventory">Inventory</a>
+					<a href="/inventory" aria-has-popup="true">
+						<ul>
+							<li><a href="inventory.html">Inventory</a></li>
+						</ul>
+					</a>
 					<a href="/our-process">Our Process</a>
 					<a href="/wholesale">Wholesale</a>
 					<a href="/about-us">About Us</a>
