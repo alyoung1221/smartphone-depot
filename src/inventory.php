@@ -1,8 +1,3 @@
-<?php
-	require_once("spwebsite/users/config.php");	
-	
-	if (mysqli_query($link, "SELECT * FROM PHONES")) {				
-?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -10,23 +5,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Inventory | Smartphone Depot</title>
-	<link href="css/general.css" rel="stylesheet" type="text/css">
+	<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet" type="text/css">
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
-	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+	<link rel="icon" href="assets/favicon.png" type="image/x-icon">
 </head>
 <body>
   	<!--Header-->
-		<?php
-			readfile("header.php");
-		?>
+	<?php
+		include("components/header.php");
+	?>
 	<!--Main-->
 		<main>
 			<table id="inventory">
-				<caption><h1>Live Inventory</h1></caption>
+				<caption><h1 tabindex="0">Live Inventory</h1></caption>
 				<thead>
 					<tr>
 						<th scope="col">Model
-							<button class="fas fa-sort"><span class="hidden">Sort by model</span></button>
+							<button class="fas fa-sort"><span class="hidden" tabindex="0">Sort by model</span></button>
 						</th>
 						<th scope="col">Grade
 							<button class="fas fa-sort"><span class="hidden">Sort by phone grade</span></button>
@@ -47,18 +42,19 @@
 				</thead>
 				<tbody>
 				<?php
-					$products = ""; 
-					$phones = mysqli_query($link, "SELECT P_MODEL, P_GRADE, P_STG_SIZE, P_QUANTITY FROM PHONES, PHONE_OPTIONS AS OPTS, PHONE_STORAGE AS STG, PHONE_GRADES AS GRADES WHERE PHONES.P_ID = OPTS.P_ID AND OPTS.P_STG_ID = STG.P_STG_ID AND OPTS.P_GRADE_ID = GRADES.P_GRADE_ID ORDER BY OPTS.P_ID, P_GRADE, P_STG_SIZE");
+					if (mysqli_query($link, "SELECT * FROM PHONES")) {	
+						$products = ""; 
+						$phones = mysqli_query($link, "SELECT PHONES.P_ID, OPTS.P_OPT_ID, P_MODEL, P_GRADE, P_STG_SIZE, P_STG_UNIT, P_QUANTITY FROM PHONES, PHONE_OPTIONS AS OPTS, PHONE_STORAGE AS STG, PHONE_GRADES AS GRADES WHERE PHONES.P_ID = OPTS.P_ID AND OPTS.P_STG_ID = STG.P_STG_ID AND OPTS.P_GRADE_ID = GRADES.P_GRADE_ID ORDER BY OPTS.P_ID, P_STG_SIZE, P_GRADE");
 							
 						while ($phone = mysqli_fetch_assoc($phones)) {
 							$products .= "\t\t\t\t<tr>\n";
 							$products .= "\t\t\t\t\t\t<th scope='row'>$phone[P_MODEL]</th>\n";
 							$products .= "\t\t\t\t\t\t<td>$phone[P_GRADE]</td>\n";
-							$products .= "\t\t\t\t\t\t<td>$phone[P_STG_SIZE]</td>\n";
+							$products .= "\t\t\t\t\t\t<td>$phone[P_STG_SIZE] $phone[P_STG_UNIT]</td>\n";
 							$colors = "";
 							$i = 0;
 														
-							$query = mysqli_query($link, "SELECT DISTINCT(C_DESC) FROM PHONES, PHONE_OPTIONS, PHONE_COLORS, COLORS WHERE PHONE_OPTIONS.P_ID = PHONES.P_ID AND PHONE_COLORS.P_OPT_ID = PHONE_OPTIONS.P_ID AND PHONE_COLORS.C_ID = COLORS.C_ID");
+							$query = mysqli_query($link, "SELECT DISTINCT(C_DESC) FROM PHONES, PHONE_OPTIONS, PHONE_COLORS, COLORS WHERE PHONE_OPTIONS.P_ID = $phone[P_ID] AND PHONE_COLORS.P_OPT_ID = $phone[P_OPT_ID] AND PHONE_COLORS.C_ID = COLORS.C_ID ORDER BY C_DESC");
 
 							while ($color = mysqli_fetch_assoc($query)) {
 								$colors .= strtolower("$color[C_DESC]");
@@ -80,18 +76,24 @@
 			</tbody>
 		</table>
 	</main>
+	<!--Footer-->
 	<?php 
-		readfile("footer.html");
+		readfile("components/footer.html");
 	?>
-	<script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
-	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/plug-ins/1.10.20/api/fnFilterClear.js"></script>
+	
+	<!--Scripts-->
+	<?php 
+		readfile("js/scripts.html");
+	?>
+	<script src="js/niceNumber.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/actions.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 	<script>
-		$("nav a:nth-of-type(2)").addClass("active");
+		$(".menu-item:first-of-type").addClass("active");
+		$(".submenu-item:last-of-type a").addClass("active");
 		
-		$('#inventory').DataTable({
+		var inventory = $('#inventory').DataTable({
 			info: false,
 			paging: false,
 			ordering: false,
@@ -110,7 +112,7 @@
 								.draw();
 						});
 						
-					column.data().unique().sort().each(function (d, j) {
+					column.data().unique().each(function (d, j) {
 						select.append('<option value="'+d+'">'+d+'</option>');
 					});
 				});
@@ -133,13 +135,14 @@
 						var options = d.split(", ");
 								
 						for (var i = 0; i < options.length; i++) {
-							select.append('<option value="'+options[i].toLowerCase()+'">'+options[i]+'</option>');
+							var option = capitalize(options[i]);
+							select.append('<option value="'+option+'">'+option+'</option>');
 						}
 					});
 				});
 				
 				var options = new Array();
-					
+				
 				$("select").eq(3).children("option").each(function(index){
 					options[index] = $(this).val();
 						
@@ -151,10 +154,9 @@
 				})
 			}
 		});
-		
+
 		$("[name='reset']").click(function() {
-			$("#inventory").DataTable().search('').columns().search('').draw();
-			$('select').prop('selectedIndex', 0);
+			reset(inventory)
 		});
 		$("select").change(function() {
 			if ($(this).val()) {
