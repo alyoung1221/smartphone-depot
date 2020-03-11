@@ -60,17 +60,16 @@ form button:hover, .view button:hover {
 
 /*Containers*/
 	.flex-container, .row {
-		display: flex;
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -ms-flexbox;
+		display: flex;
 		flex-wrap: wrap;
 	}
 	
 /*Header*/
 	header {
-		position: -webkit-sticky;
-		position: sticky;
+		position: fixed;
 		top: 0;
 		background-color: #313131;
 		width: 100%;
@@ -258,7 +257,7 @@ form button:hover, .view button:hover {
 	}
 
 /*Close Button*/
-	.close {
+	#close-dialog {
 		position: sticky;
 		top: 0;
 		color: #000;
@@ -268,12 +267,9 @@ form button:hover, .view button:hover {
 		z-index: 1;
 		float: right;
 	}
-	.close:hover, .close:focus {
+	#close-dialog:hover, #close-dialog:focus {
+		outline: 1px solid red;
 		color: gray;
-	}
-	span.close {
-		align-self: self-end;
-		transition: 0.3s;
 	}
 	.products button[type="submit"] {
 		font-size: 105%;
@@ -315,83 +311,6 @@ form button:hover, .view button:hover {
 		width: 15.5px;
 		display: block;
 		background-size: 15.5px;
-	}
-	table {
-		margin: auto;
-		table-layout: fixed;
-		border-collapse: collapse;
-	}
-	thead tr {
-		display: block;
-	}
-	thead {
-		background: #33BEF2;
-		color: #FFF;
-	}
-	th, td {
-		width: 240px;
-		text-align: center;
-	}
-	thead th {
-		padding: 15px;
-	}
-	th button {
-		float: right;
-		color: #FFF;
-	}
-	th button:hover, th button:focus {
-		color: #909090;
-	}
-	th div {
-		height: 32px;	
-		width: 100%;
-		margin: 20px auto 5px auto;
-	}
-	.dataTables_filter {
-		display: none;
-	}
-	.dataTables_empty {
-		position: absolute;
-		left: -9999px;
-	}
-	th select {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-		background: url(/images/chevron-arrow.png) no-repeat center right 10px #FFF;
-		background-size: 11px;
-		padding: 7px 8px;
-		border: 0;
-		width: 100%;
-		font-size: 100%;
-		margin: 20px auto 5px auto;
-		text-align: center;
-		text-align-last: center;
-		-ms-text-align-last: center;
-		-moz-text-align-last: center;
-	}
-	th:nth-of-type(4) select {
-		text-transform: capitalize;
-	}
-	th select:focus {
-		box-shadow: rgba(165, 165, 165, 0.6) 0px 0px 2px 1.5px;
-	}
-	tbody {
-		display: block;
-		height: 400px;
-		overflow-y: auto;
-	}
-	tbody th {
-		font-weight: 400;
-	}
-	td, tbody th {
-		border: 1px solid #DDD;
-		padding: 8px 15px;
-	}
-	[name="reset"] {
-		font-size: 2.5em;
-		margin-left: 8px; 
-		margin-top: -6px; 
 	}
 
 /*Profile*/
@@ -524,9 +443,6 @@ form button:hover, .view button:hover {
 		main {
 			margin: 60px auto;
 			width: 90%;
-		}
-		#about {
-			width: 100%;
 		}
 		table, #isearch {
 			width: 100%;
