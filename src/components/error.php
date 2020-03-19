@@ -32,9 +32,14 @@
 		<br><br>
 		<input type="search" name="search" class="search" id="wsearch" placeholder="Type and hit enter...">
 	</main>
+	<!--Scripts-->
+	<?php 
+		readfile("../js/scripts.html");
+	?>
+	<script src="js/script.js"></script>	
 	<!--Footer-->
 	<?php 
-		readfile("footer.html");
+		readfile("../components/footer.html");
 	?>
 </body>
 </html>
