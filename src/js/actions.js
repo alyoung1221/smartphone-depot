@@ -23,7 +23,7 @@ $("select").change(function() {
 });
 
 function selectAll(el) {;
-	$(".select").each(function() {
+	$("[name='phones[]']").each(function() {
 		$(this).attr("checked", true);
 	});
 	$(".editable").addClass("hidden");
@@ -31,8 +31,9 @@ function selectAll(el) {;
 	el.html("Unselect All");
 	el.val("unselectAll");
 }
+
 function unselectAll(el) {
-	$(".select").each(function() {
+	$("[name='phones[]']").each(function() {
 		$(this).attr("checked", false);
 	});
 	$(".editable").removeClass("hidden");
@@ -44,6 +45,9 @@ function unselectAll(el) {
 function update() {
 	if ($("[name='phones[]']:checked").length == 0) {
 		alert("Please select a phone to update.");
+	}
+	else {
+		alert(); 
 	}
 }
 

@@ -52,9 +52,12 @@
 
       // Generate buttons
       var $minusButton = $('<button/>')
-        .attr('type', 'button')
+        .attr({
+			'type' : 'button', 
+			'name' : 'decrement'
+		})
         .html(settings.buttonDecrement)
-        .on('mousedown mouseup mouseleave', function(event){
+        .on('mousedown mouseup mouseleave keypress', function(event){
           changeInterval(event.type, interval, function(){
             if (
               attrMin == null
@@ -77,11 +80,13 @@
             $currentInput.trigger('input');
           }
         });
-
       var $plusButton = $('<button/>')
-        .attr('type', 'button')
+        .attr({
+			'type' : 'button', 
+			'name' : 'increment'
+		})
         .html(settings.buttonIncrement)
-        .on('mousedown mouseup mouseleave', function(event){
+        .on('mousedown mouseup mouseleave keypress', function(event){
           changeInterval(event.type, interval, function(){
             if (
               attrMax == null
@@ -104,7 +109,23 @@
             $currentInput.trigger('input');
           }
         });
-
+		
+		$(window).keyup(function(e) {
+			var code = (e.keyCode ? e.keyCode : e.which);
+				
+			if (code === 13) {
+				if ($(e.target).attr("name") === "decrement") {
+					if (attrMin == null || attrMin < parseFloat(currentInput.value)) {
+						currentInput.value =  parseInt(currentInput.value) - step;
+					}
+				}
+				else if ($(e.target).attr("name") === "increment") {
+					if (attrMax == null || attrMax > parseFloat(currentInput.value)) {
+						currentInput.value =  parseInt(currentInput.value) + step;
+					}
+				}
+			}
+		});
       // Remember that we have initialized this input
       $currentInput.attr('data-nice-number-initialized', true);
 
