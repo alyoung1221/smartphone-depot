@@ -420,16 +420,24 @@ button {
 
 /*Footer*/
 	footer {
-		background-color: #313131;
-		color: #FFF;
 		text-align: center;
 		margin-top: 30px;
 		width: 100%;
 		display: block;
 	}
+	footer, footer a {
+		color: #FFF;
+	}
+	#links {
+		background-color: #313131;
+		padding: 30px 0;
+	}
+	#copyright {
+		background-color: #000;
+	}
 	.col {
-		display:flex;
-		flex-direction:column;
+		display: flex;
+		flex-direction: column;
 	}
 	.col > div {
 		flex: 1;
