@@ -1,6 +1,6 @@
 <?php 			
 	if (isset($page)) {
-		require_once("../config.php");		
+		require_once("../config.php");	
 	}
 	else {
 		require_once("config.php");		
@@ -71,10 +71,11 @@
 				</div>
 				<div id="iconbar" class="flex-container">
 					<div class="hover">
-						<a href="/cart" class="fa-stack" aria-label="Shopping Cart">
+						<a href="/cart"><span id="shopping-bag">0</span></a>
+						<!--<a href="/cart" class="fa-stack" aria-label="Shopping Cart">
 						  <p class="fas fa-shopping-bag fa-stack-2x" style="-ms-transform: scale(.82, 1); transform: scale(.82, 1); color: #00AAEF;"></p>
 						  <p class="fa-stack-1x fa-inverse" style="vertical-align: middle; position: relative; top: 6px;">0</p>
-						</a>
+						</a>-->
 						<div class="hidden shopping-cart" tabindex="0">
 							<div tabindex="0">
 								No products in the cart
@@ -94,6 +95,3 @@
 		</div>	
 	</div>		
 </header>
-<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script>
-</script>
