@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2020 at 04:14 PM
+-- Generation Time: Mar 25, 2020 at 11:42 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -182,7 +182,8 @@ CREATE TABLE `loginadmin` (
 
 INSERT INTO `loginadmin` (`idadmin`, `adminUsername`, `adminPassword`, `adminLevel`) VALUES
 (29, 'user9', '25f9e794323b453885f5181f1b624d0b', 'admin'),
-(31, 'smartphoneDepot', '25f9e794323b453885f5181f1b624d0b', 'admin');
+(31, 'smartphoneDepot', '25f9e794323b453885f5181f1b624d0b', 'admin'),
+(32, 'timtran', '25f9e794323b453885f5181f1b624d0b', 'user');
 
 -- --------------------------------------------------------
 
@@ -206,8 +207,8 @@ CREATE TABLE `phones` (
 --
 
 INSERT INTO `phones` (`P_ID`, `P_SKU`, `P_MODEL`, `P_DESC`, `P_IMG`, `P_STATUS`, `P_FEATURED_START`, `P_FEATURED_END`) VALUES
-(1, NULL, 'iPhone 6', 'Factory Unlocked\r\nApple A8 chip with M8 motion coprocessor\r\nSoftware version: iOS 12.4.4\r\n4G LTE speed\r\n4.7â€³ Retina touch screen with IPS technology\r\n8 MP rear-facing camera and front-facing 1.2 MP camera for self-portraits and video.\r\nCloud support lets you access your files anywhere\r\n\r\n', 'images/iPhone%206/space%20grey/front.jpg', 'Y', NULL, NULL),
-(2, NULL, 'iPhone 6 Plus', 'Factory Unlocked\r\nApple A8 chip with M8 motion coprocessor\r\nSoftware version: iOS 12.4.4\r\n4G LTE speed\r\n5.5â€³ Retina touch screen with IPS technology\r\n8 MP rear-facing camera and front-facing 1.2 MP camera for self-portraits and video.\r\nCloud support lets you access your files anywhere\r\nTouch ID keeps your phone secure', 'images/iPhone%206%20Plus/gold/front.jpg', 'Y', NULL, NULL);
+(1, NULL, 'iPhone 6', 'Factory Unlocked\r\nApple A8 chip with M8 motion coprocessor\r\nSoftware version: iOS 12.4.4\r\n4G LTE speed\r\n4.7″ Retina touch screen with IPS technology\r\n8 MP rear-facing camera and front-facing 1.2 MP camera for self-portraits and video.\r\nCloud support lets you access your files anywhere\r\n\r\n', 'images/iPhone%206/space%20grey/front.jpg', 'Y', NULL, NULL),
+(2, NULL, 'iPhone 6 Plus', 'Factory Unlocked\r\nApple A8 chip with M8 motion coprocessor\r\nSoftware version: iOS 12.4.4\r\n4G LTE speed\r\n5.5″ Retina touch screen with IPS technology\r\n8 MP rear-facing camera and front-facing 1.2 MP camera for self-portraits and video.\r\nCloud support lets you access your files anywhere\r\nTouch ID keeps your phone secure', 'images/iPhone%206%20Plus/gold/front.jpg', 'Y', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -301,12 +302,12 @@ CREATE TABLE `phone_options` (
 
 INSERT INTO `phone_options` (`P_OPT_ID`, `P_PRICE`, `P_QUANTITY`, `P_OPT_SALE_ST`, `P_OPT_SALE_END`, `P_GRADE_ID`, `P_STG_ID`, `P_ID`) VALUES
 (1, '125', 200, NULL, NULL, 1, 1, 1),
-(2, '150', 200, NULL, NULL, 1, 3, 1),
+(2, '150', 194, NULL, NULL, 1, 3, 1),
 (3, '120', 200, NULL, NULL, 2, 1, 1),
 (4, '140', 200, NULL, NULL, 2, 3, 1),
-(5, '175', 200, NULL, NULL, 1, 1, 2),
+(5, '175', 198, NULL, NULL, 1, 1, 2),
 (6, '160', 200, NULL, NULL, 2, 1, 2),
-(7, '200', 200, NULL, NULL, 1, 3, 2),
+(7, '200', 199, NULL, NULL, 1, 3, 2),
 (8, '185', 200, NULL, NULL, 2, 3, 2);
 
 -- --------------------------------------------------------
@@ -350,7 +351,7 @@ CREATE TABLE `sp_audit_logon` (
 --
 
 CREATE TABLE `sp_cart` (
-  `idCart` int(8) NOT NULL,
+  `idCart` int(16) NOT NULL,
   `Quantity` int(5) DEFAULT NULL,
   `idShopper` int(8) DEFAULT NULL,
   `OrderPlaced` int(1) DEFAULT NULL,
@@ -404,7 +405,23 @@ INSERT INTO `sp_cart` (`idCart`, `Quantity`, `idShopper`, `OrderPlaced`, `SubTot
 (12, 1, 102, 0, NULL, NULL, 40, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
 (13, 4, 102, 1, 2799.96, 5, 126, 2930.96, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
 (14, 1, 103, 1, 799.99, 5, 36, 840.99, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
-(15, 2, 103, 0, NULL, NULL, 30, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N');
+(15, 2, 103, 0, NULL, NULL, 30, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-02-21 20:16:38', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(16, 1, 100, 1, 399.99, 5, 18, 422.99, '2020-03-20 10:36:11', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-20 10:36:11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(26, 2, 101, 1, 1599.98, 5, NULL, NULL, '2020-03-20 12:48:45', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-20 12:48:45', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(27, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-20 23:18:21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-20 23:18:21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(28, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 09:54:57', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 09:54:57', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(30, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 09:56:12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 09:56:12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(31, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 10:13:22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 10:13:22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(32, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 10:19:09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 10:19:09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(33, NULL, 100, 0, NULL, NULL, NULL, NULL, '2020-03-21 10:36:57', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 10:36:57', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(34, NULL, 122, 0, NULL, NULL, NULL, NULL, '2020-03-21 10:37:33', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 10:37:33', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(35, NULL, 123, 0, NULL, NULL, NULL, NULL, '2020-03-21 10:39:34', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 10:39:34', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(36, NULL, 123, 0, NULL, NULL, NULL, NULL, '2020-03-21 10:42:30', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 10:42:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(37, NULL, 122, 0, NULL, NULL, NULL, NULL, '2020-03-21 11:15:18', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-21 11:15:18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(38, NULL, 123, 0, NULL, NULL, NULL, NULL, '2020-03-25 17:16:36', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-25 17:16:36', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(39, NULL, 123, 0, NULL, NULL, NULL, NULL, '2020-03-25 17:27:39', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-25 17:27:39', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(40, NULL, 123, 0, NULL, NULL, NULL, NULL, '2020-03-25 17:35:52', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-25 17:35:52', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N'),
+(41, NULL, 123, 0, NULL, NULL, NULL, NULL, '2020-03-25 17:55:05', NULL, NULL, NULL, NULL, NULL, 'VA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-03-25 17:55:05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N', 'N');
 
 --
 -- Triggers `sp_cart`
@@ -426,9 +443,11 @@ declare lv_idcart int(8);
 declare lv_change_number DOUBLE; 
  declare lv_finished int(2);
  declare lv_idSmartPhones VARCHAR(16);
+ declare lv_id_phoneoption int(11);
  declare lv_quantity int(8);
+ declare lv_qyts int(8);
 DECLARE cursor1 CURSOR FOR 
- SELECT idSmartPhones, quantity 
+ SELECT idSmartPhones, quantity, P_OPT_ID 
  FROM sp_cartitem
  WHERE idCart = NEW.idCart;
  
@@ -437,7 +456,7 @@ DECLARE cursor1 CURSOR FOR
   
  OPEN cursor1;
  getRedcord: LOOP
- FETCH cursor1 INTO lv_idSmartPhones, lv_quantity;
+ FETCH cursor1 INTO lv_idSmartPhones, lv_quantity,lv_id_phoneoption;
  IF lv_finished = 1 THEN 
      LEAVE getRedcord;
  END IF;
@@ -445,6 +464,9 @@ DECLARE cursor1 CURSOR FOR
  UPDATE sp_phones 
  SET stock = stock - lv_quantity 
  WHERE idSmartPhones = lv_idSmartPhones; 
+  UPDATE phone_options 
+ SET P_QUANTITY = P_QUANTITY - lv_quantity 
+ WHERE P_OPT_ID = lv_id_phoneoption;
 end if;
 BEGIN
 
@@ -485,7 +507,8 @@ DELIMITER ;
 
 CREATE TABLE `sp_cartitem` (
   `idCartItem` int(8) NOT NULL,
-  `idSmartPhones` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `P_OPT_ID` int(11) NOT NULL,
+  `idSmartPhones` int(8) DEFAULT NULL,
   `color` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `storageGB` int(5) NOT NULL,
   `Price` double DEFAULT NULL,
@@ -499,20 +522,20 @@ CREATE TABLE `sp_cartitem` (
 -- Dumping data for table `sp_cartitem`
 --
 
-INSERT INTO `sp_cartitem` (`idCartItem`, `idSmartPhones`, `color`, `storageGB`, `Price`, `Quantity`, `idCart`, `option1`, `option2`) VALUES
-(1, '11', 'silver', 64, 399.99, 1, 1, 1, 4),
-(17, '11', 'gold', 64, 399.99, 1, 1, 1, 4),
-(18, '11', 'black', 64, 799.99, 2, 9, 2, 3),
-(19, '12', 'red', 64, 399.99, 1, 10, 3, 2),
-(20, '13', 'white', 64, 799.99, 2, 11, 2, 4),
-(21, '14', 'red', 128, 799.99, 1, 11, 1, 4),
-(22, '15', 'silver', 128, 399.99, 1, 12, 1, 2),
-(23, '16', 'silver', 128, 799.99, 2, 13, 2, 3),
-(24, '17', 'gold', 256, 399.99, 1, 13, 1, 4),
-(25, '18', 'silver', 256, 799.99, 1, 14, 1, 3),
-(26, '19', 'gold', 256, 799.99, 2, 15, 1, 3),
-(27, '20', 'silver', 64, 399.99, 1, 15, 2, 4),
-(28, '21', 'gold', 64, 799.99, 1, 13, 1, 1);
+INSERT INTO `sp_cartitem` (`idCartItem`, `P_OPT_ID`, `idSmartPhones`, `color`, `storageGB`, `Price`, `Quantity`, `idCart`, `option1`, `option2`) VALUES
+(1, 1, 11, 'silver', 64, 399.99, 1, 1, 1, 4),
+(17, 1, 11, 'gold', 64, 399.99, 1, 1, 1, 4),
+(18, 2, 11, 'black', 64, 799.99, 2, 9, 2, 3),
+(19, 2, 12, 'red', 64, 399.99, 1, 10, 3, 2),
+(20, 3, 13, 'white', 64, 799.99, 2, 11, 2, 4),
+(21, 3, 14, 'red', 128, 799.99, 1, 11, 1, 4),
+(22, 4, 15, 'silver', 128, 399.99, 1, 12, 1, 2),
+(23, 5, 16, 'silver', 128, 799.99, 2, 26, 2, 3),
+(24, 5, 17, 'gold', 256, 399.99, 1, 13, 1, 4),
+(25, 6, 18, 'silver', 256, 799.99, 1, 14, 1, 3),
+(26, 6, 19, 'gold', 256, 799.99, 2, 15, 1, 3),
+(27, 7, 20, 'silver', 64, 399.99, 1, 16, 2, 4),
+(28, 8, 21, 'gold', 64, 799.99, 1, 13, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -587,7 +610,9 @@ CREATE TABLE `sp_expense` (
 
 INSERT INTO `sp_expense` (`idexpense`, `expensename`, `description`, `totalexpense`, `currentdate`) VALUES
 (1, 'ticket to texas', 'flight to texas to buy phone', 2000, '2020-03-07 00:05:03'),
-(2, 'ticket to texas', 'flight to texas to buy phone', 2000, '2020-03-07 00:36:51');
+(2, 'ticket to texas', 'flight to texas to buy phone', 2000, '2020-03-07 00:36:51'),
+(3, 'ticket to texas', 'flight to texas to buy phone', 2000, '2020-03-07 10:44:01'),
+(4, 'ticket to texas', 'flight to texas to buy phone', 2000, '2020-03-07 11:09:19');
 
 -- --------------------------------------------------------
 
@@ -661,7 +686,7 @@ CREATE TABLE `sp_online_orderprocess_record` (
 --
 
 CREATE TABLE `sp_phones` (
-  `idSmartPhones` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `idSmartPhones` int(8) NOT NULL,
   `sku` int(8) NOT NULL,
   `ProductName` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -688,24 +713,25 @@ CREATE TABLE `sp_phones` (
 --
 
 INSERT INTO `sp_phones` (`idSmartPhones`, `sku`, `ProductName`, `Description`, `PhoneType`, `color`, `storageGB`, `grade`, `ProductImage`, `Price`, `stock`, `SaleStart`, `SaleEnd`, `SalePrice`, `Active`, `Featured`, `FeatureStart`, `FeatureEnd`, `Type`, `idDepartment`) VALUES
-('11', 1, 'iphone X', 'iphone X, 64 GB', 'iphoneX', '', 64, 'orange', 'iphoneXS.png', 699.99, 100, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('12', 1, 'iphone X', 'iphone X, 64 GB ', 'iphoneX', '', 64, 'green', 'iphoneXS.png', 599.99, 100, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('13', 1, 'iphone X', 'iphone X, 64 GB ', 'iphoneX', '', 64, 'yellow', 'iphoneXS.png', 499.99, 100, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('14', 1, 'iphone X', 'iphone X, 128 GB', 'iphoneX', '', 128, 'orange', 'iphoneXS.png', 799.99, 100, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('15', 1, 'iphone X', 'iphone X, 128 GB', 'iphoneX', '', 128, 'green', 'iphoneXS.png', 699.99, 2, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('16', 1, 'iphone X', 'iphone X, 128 GB', 'iphoneX', '', 128, 'yellow', 'iphoneXS.png', 599.99, 10, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('17', 1, 'iphone X', 'iphone X, 256 GB ', 'iphoneX', '', 256, 'orange', 'iphoneXS.png', 899.99, 2, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('18', 1, 'iphone X', 'iphone X, 256 GB ', 'iphoneX', '', 256, 'green', 'iphoneXS.png', 799.99, 2, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('19', 1, 'iphone X', 'iphone X, 256 GB', 'iphoneX', '', 256, 'yellow', 'iphoneXS.png', 699.99, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('20', 1, 'iphone XS', 'iphone XS, 64 GB', 'iphoneXS', '', 64, 'orange', 'iphoneXS.png', 799.99, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('21', 1, 'iphone XS', 'iphone XS, 64 GB ', 'iphoneXS', '', 64, 'green', 'iphoneXS.png', 699.99, 2, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('22', 1, 'iphone XS', 'iphone XS, 64 GB ', 'iphoneXS', '', 64, 'yellow', 'iphoneXS.png', 599.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('23', 1, 'iphone XS', 'iphone XS, 128 GB ', 'iphoneXS', '', 128, 'orange', 'iphoneXS.png', 899.99, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('24', 1, 'iphone XS', 'iphone XS, 128 GB ', 'iphoneXS', '', 128, 'green', 'iphoneXS.png', 799.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('25', 1, 'iphone XS', 'iphone XS, 128 GB ', 'iphoneXS', '', 128, 'yellow', 'iphoneXS.png', 699.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('26', 1, 'iphone XS', 'iphone XS, 256 GB ', 'iphoneXS', '', 256, 'orange', 'iphoneXS.png', 999.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('27', 1, 'iphone XS', 'iphone XS, 256 GB ', 'iphoneXS', '', 256, 'green', 'iphoneXS.png', 899.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
-('28', 1, 'iphone XS', 'iphone XS, 256 GB ', 'iphoneXS', '', 256, 'yellow', 'iphoneXS.png', 799.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1);
+(11, 1, 'iphone X', 'iphone X, 64 GB', 'iphoneX', '', 64, 'orange', 'iphoneXS.png', 699.99, 117, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(12, 1, 'iphone X', 'iphone X, 64 GB ', 'iphoneX', '', 64, 'green', 'iphoneXS.png', 599.99, 100, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(13, 1, 'iphone X', 'iphone X, 64 GB ', 'iphoneX', '', 64, 'yellow', 'iphoneXS.png', 499.99, 100, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(14, 1, 'iphone X', 'iphone X, 128 GB', 'iphoneX', '', 128, 'orange', 'iphoneXS.png', 799.99, 100, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(15, 1, 'iphone X', 'iphone X, 128 GB', 'iphoneX', '', 128, 'green', 'iphoneXS.png', 699.99, 100, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(16, 1, 'iphone X', 'iphone X, 128 GB', 'iphoneX', '', 128, 'yellow', 'iphoneXS.png', 599.99, 98, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(17, 1, 'iphone X', 'iphone X, 256 GB ', 'iphoneX', '', 256, 'orange', 'iphoneXS.png', 899.99, 100, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(18, 1, 'iphone X', 'iphone X, 256 GB ', 'iphoneX', '', 256, 'green', 'iphoneXS.png', 799.99, 2, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(19, 1, 'iphone X', 'iphone X, 256 GB', 'iphoneX', '', 256, 'yellow', 'iphoneXS.png', 699.99, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(20, 1, 'iphone XS', 'iphone XS, 64 GB', 'iphoneXS', '', 64, 'orange', 'iphoneXS.png', 799.99, 2, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(21, 1, 'iphone XS', 'iphone XS, 64 GB ', 'iphoneXS', '', 64, 'green', 'iphoneXS.png', 699.99, 2, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(22, 1, 'iphone XS', 'iphone XS, 64 GB ', 'iphoneXS', '', 64, 'yellow', 'iphoneXS.png', 599.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(23, 1, 'iphone XS', 'iphone XS, 128 GB ', 'iphoneXS', '', 128, 'orange', 'iphoneXS.png', 899.99, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(24, 1, 'iphone XS', 'iphone XS, 128 GB ', 'iphoneXS', '', 128, 'green', 'iphoneXS.png', 799.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(25, 1, 'iphone XS', 'iphone XS, 128 GB ', 'iphoneXS', '', 128, 'yellow', 'iphoneXS.png', 699.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(26, 1, 'iphone XS', 'iphone XS, 256 GB ', 'iphoneXS', '', 256, 'orange', 'iphoneXS.png', 999.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(27, 1, 'iphone XS', 'iphone XS, 256 GB ', 'iphoneXS', '', 256, 'green', 'iphoneXS.png', 899.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(28, 1, 'iphone XS', 'iphone XS, 256 GB ', 'iphoneXS', '', 256, 'yellow', 'iphoneXS.png', 799.99, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'S', 1),
+(31, 0, 'Iphone 12', 'Iphone 12 Midnight Green, 64 GB', 'iphone12', '', 64, 'orange', NULL, 799.98, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Triggers `sp_phones`
@@ -727,7 +753,7 @@ DELIMITER ;
 CREATE TABLE `sp_phonesoption` (
   `idSmartPhonesoption` int(3) NOT NULL,
   `idoption` int(2) DEFAULT NULL,
-  `idSmartPhones` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL
+  `idSmartPhones` int(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -763,7 +789,7 @@ CREATE TABLE `sp_phonespos` (
   `idphonepos` int(16) NOT NULL,
   `IMEI` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
   `PhoneName` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `P_OPT_ID` int(8) DEFAULT NULL,
   `PhoneType` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `storageGB` int(5) NOT NULL,
   `color` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -784,8 +810,19 @@ CREATE TABLE `sp_phonespos` (
 -- Dumping data for table `sp_phonespos`
 --
 
-INSERT INTO `sp_phonespos` (`idphonepos`, `IMEI`, `PhoneName`, `Description`, `PhoneType`, `storageGB`, `color`, `grade`, `ProductImage`, `Price`, `SaleStart`, `SaleEnd`, `SalePrice`, `Active`, `idCustomer`, `FeatureStart`, `FeatureEnd`, `Type`) VALUES
-(16, '123456789872', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', NULL, 699.98, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sp_phonespos` (`idphonepos`, `IMEI`, `PhoneName`, `P_OPT_ID`, `PhoneType`, `storageGB`, `color`, `grade`, `ProductImage`, `Price`, `SaleStart`, `SaleEnd`, `SalePrice`, `Active`, `idCustomer`, `FeatureStart`, `FeatureEnd`, `Type`) VALUES
+(19, '123456789872', 'Iphone 6', 1, 'iphoneX', 64, 'black', 'orange', NULL, 699.98, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, '123456789873', 'Iphone X', 2, 'iphoneXS', 64, 'black', 'orange', NULL, 799.98, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(22, '123456789874', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', NULL, 699.98, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(23, '123456789875', 'Iphone XS', NULL, 'iphoneXS', 64, 'black', 'orange', NULL, 799.98, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(26, '123456789877', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', NULL, 699.98, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, '123456789881', 'Iphone 12', NULL, 'iphone12', 64, 'black', 'orange', NULL, 799.98, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(30, '123456789871', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', NULL, 699.98, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(31, '54353454353', 'iphone 6', NULL, 'iphone6s', 64, 'black', 'orange', NULL, 699.98, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(100, '5543543534', NULL, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(101, '5543543534', NULL, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(102, '434324342', NULL, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(104, '434324342', NULL, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Triggers `sp_phonespos`
@@ -793,9 +830,9 @@ INSERT INTO `sp_phonespos` (`idphonepos`, `IMEI`, `PhoneName`, `Description`, `P
 DELIMITER $$
 CREATE TRIGGER `ADD_NEW_INVENTORY` AFTER INSERT ON `sp_phonespos` FOR EACH ROW BEGIN
 	IF NEW.PhoneType IS NOT NULL THEN 
-	update sp_phones
-    SET STOCK = STOCK + 1
-    WHERE PhoneType = NEW.PhoneType AND storageGB = NEW.storageGB and grade = NEW.grade;
+	update phone_options
+    SET p_quantity = p_quantity + 1
+    WHERE P_OPT_ID = NEW.P_OPT_ID ;
     END IF;
 END
 $$
@@ -847,7 +884,7 @@ DELIMITER ;
 
 CREATE TABLE `sp_phones_request` (
   `idRequest` int(4) NOT NULL,
-  `idSmartPhones` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idSmartPhones` int(8) DEFAULT NULL,
   `dtrequest` datetime DEFAULT CURRENT_TIMESTAMP,
   `dtrecd` date DEFAULT NULL,
   `cost` double DEFAULT NULL,
@@ -881,7 +918,8 @@ INSERT INTO `sp_phonetype` (`idphonetype`, `phonetype`, `PhonetypeName`) VALUES
 (9, 'iphone7plus', 'Iphone 7 Plus'),
 (10, 'iphone7', 'Iphone 7'),
 (11, 'iphone6s', 'Iphone 6s'),
-(12, 'iphone11pro', 'Iphone 11 Pro');
+(12, 'iphone11pro', 'Iphone 11 Pro'),
+(13, 'iphone12', 'Iphone 12');
 
 -- --------------------------------------------------------
 
@@ -912,7 +950,11 @@ CREATE TABLE `sp_phone_onlinesell_record` (
 --
 
 INSERT INTO `sp_phone_onlinesell_record` (`idonlineSaleHistory`, `idBasket`, `CustomerFName`, `customerLName`, `address`, `dtcreated`, `qtys`, `productname`, `description`, `phonetype`, `storageGB`, `color`, `grade`, `currentdate`, `actionTaken`) VALUES
-(3, 9, 'Tim', 'Tran', '1400 University St.', '2020-02-21', 2, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'black', 'orange', '2020-03-06 12:07:43', 'S');
+(1, 9, 'Tim', 'Tran', '1400 University St.', '2020-02-21', 2, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'black', 'orange', '2020-03-18 19:46:04', 'S'),
+(2, 16, 'Tim', 'Tran', '1400 University St.', '2020-03-20', 1, 'iphone XS', 'iphone XS, 64 GB', 'iphoneXS', 64, 'silver', 'orange', '2020-03-20 10:48:46', 'S'),
+(3, 26, 'Alana', 'Young', '1401 University St.', '2020-03-20', 2, 'iphone X', 'iphone X, 128 GB', 'iphoneX', 128, 'silver', 'yellow', '2020-03-20 23:06:09', 'S'),
+(4, 9, 'Tim', 'Tran', '1400 University St.', '2020-02-21', 2, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'black', 'orange', '2020-03-25 17:56:45', 'S'),
+(5, 9, 'Tim', 'Tran', '1400 University St.', '2020-02-21', 2, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'black', 'orange', '2020-03-25 18:41:41', 'S');
 
 --
 -- Triggers `sp_phone_onlinesell_record`
@@ -957,14 +999,20 @@ CREATE TABLE `sp_phone_sales_history` (
 --
 
 INSERT INTO `sp_phone_sales_history` (`idSaleHistory`, `idSmartPhones`, `ProductName`, `Description`, `PhoneType`, `storageGB`, `sphonecolor`, `grade`, `Price`, `currentdate`, `datesold`, `actionTaken`) VALUES
-(106, '123456789856', 'iphoneX', NULL, 'iphoneX', 0, 'black', 'orange', 699.99, '2020-03-04 18:08:39', '2020-03-04 18:08:39', 'U-Sold'),
-(107, '123456789877', 'iphoneX', NULL, 'iphoneX', 0, 'black', 'orange', 599, '2020-03-04 18:08:47', '2020-03-04 18:08:47', 'U-Sold'),
-(108, '123456789877', 'iphoneX', NULL, 'iphoneX', 0, 'black', 'orange', 599, '2020-03-04 20:21:56', '2020-03-04 20:21:56', 'U-Sold'),
-(109, '123456789855', 'iphoneX', NULL, 'iphoneX', 0, 'black', 'orange', 599, '2020-03-05 11:08:46', '2020-03-05 11:08:46', 'U-Sold'),
-(110, '123456789871', 'Iphone X', NULL, 'iphoneX', 0, 'black', 'orange', 699.98, '2020-03-05 14:02:23', '2020-03-05 14:02:23', 'U-Sold'),
-(111, '123456789872', 'Iphone X', NULL, 'iphoneX', 0, 'black', 'orange', 699.98, '2020-03-05 14:13:35', '2020-03-05 14:13:35', 'U-Sold'),
-(112, '123456789879', 'iphoneX', NULL, 'iphoneX', 64, 'black', 'orange', 599.99, '2020-03-06 12:08:36', '2020-03-06 12:08:36', 'U-Sold'),
-(113, '123456789871', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', 699.98, '2020-03-06 12:43:21', '2020-03-06 12:43:21', 'U-Sold');
+(106, '2147483647', 'iphoneX', NULL, 'iphoneX', 0, 'black', 'orange', 699.99, '2020-03-04 18:08:39', '2020-03-04 18:08:39', 'U-Sold'),
+(107, '2147483647', 'iphoneX', NULL, 'iphoneX', 0, 'black', 'orange', 599, '2020-03-04 18:08:47', '2020-03-04 18:08:47', 'U-Sold'),
+(108, '2147483647', 'iphoneX', NULL, 'iphoneX', 0, 'black', 'orange', 599, '2020-03-04 20:21:56', '2020-03-04 20:21:56', 'U-Sold'),
+(109, '2147483647', 'iphoneX', NULL, 'iphoneX', 0, 'black', 'orange', 599, '2020-03-05 11:08:46', '2020-03-05 11:08:46', 'U-Sold'),
+(110, '2147483647', 'Iphone X', NULL, 'iphoneX', 0, 'black', 'orange', 699.98, '2020-03-05 14:02:23', '2020-03-05 14:02:23', 'U-Sold'),
+(111, '2147483647', 'Iphone X', NULL, 'iphoneX', 0, 'black', 'orange', 699.98, '2020-03-05 14:13:35', '2020-03-05 14:13:35', 'U-Sold'),
+(112, '2147483647', 'iphoneX', NULL, 'iphoneX', 64, 'black', 'orange', 599.99, '2020-03-06 12:08:36', '2020-03-06 12:08:36', 'U-Sold'),
+(113, '2147483647', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', 699.98, '2020-03-06 12:43:21', '2020-03-06 12:43:21', 'U-Sold'),
+(114, '2147483647', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', 699.98, '2020-03-07 11:34:59', '2020-03-07 11:34:59', 'U-Sold'),
+(115, '2147483647', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', 799, '2020-03-07 11:38:04', '2020-03-07 11:38:04', 'U-Sold'),
+(116, '2147483647', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', 699.98, '2020-03-10 23:07:27', '2020-03-10 23:07:27', 'U-Sold'),
+(117, '2147483647', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', 699.98, '2020-03-10 23:07:44', '2020-03-10 23:07:44', 'U-Sold'),
+(118, '123456789871', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', 699.98, '2020-03-10 23:15:51', '2020-03-10 23:15:51', 'U-Sold'),
+(119, '123456789876', 'Iphone X', NULL, 'iphoneX', 64, 'black', 'orange', 699.98, '2020-03-11 20:00:12', '2020-03-11 20:00:12', 'U-Sold');
 
 -- --------------------------------------------------------
 
@@ -1002,7 +1050,8 @@ CREATE TABLE `sp_purchasevendor` (
 --
 
 INSERT INTO `sp_purchasevendor` (`idpurchase`, `name`, `invoice`, `description`, `quantity`, `totaldue`, `status`, `currentdate`) VALUES
-(1, 'primary one inc', 2147483647, '50 iphones X, 100 iphone 11, 10 samsung, ', 160, 50000, 'paid', '2020-03-07 00:45:58');
+(1, 'primary one inc', 2147483647, '50 iphones X, 100 iphone 11, 10 samsung, ', 160, 50000, 'paid', '2020-03-07 00:45:58'),
+(2, 'primary one inc', 2147483647, '50 iphones X, 100 iphone 11, 10 samsung, ', 100, 2000, 'paid', '2020-03-07 11:08:52');
 
 -- --------------------------------------------------------
 
@@ -1171,7 +1220,41 @@ INSERT INTO `sp_trans_log` (`idlog`, `name`, `currentdate`, `errmsg`) VALUES
 (8, 'smartphoneDepot', '2020-03-06 12:43:21', 'this user processed sale for Cart# : '),
 (9, 'smartphoneDepot', '2020-03-06 13:14:13', 'this user manualy updated stock quantity of phones ID :13'),
 (10, 'smartphoneDepot', '2020-03-06 23:52:27', 'this user Add a new Phone: imei# : '),
-(11, 'smartphoneDepot', '2020-03-07 00:30:59', 'this user manualy updated stock quantity of phones ID :14');
+(11, 'smartphoneDepot', '2020-03-07 00:30:59', 'this user manualy updated stock quantity of phones ID :14'),
+(12, 'smartphoneDepot', '2020-03-07 10:40:48', 'this user manualy updated stock quantity of phones ID :15'),
+(13, 'smartphoneDepot', '2020-03-07 10:40:58', 'this user manualy updated stock quantity of phones ID :16'),
+(14, 'smartphoneDepot', '2020-03-07 10:44:15', 'this user manualy updated stock quantity of phones ID :17'),
+(15, 'smartphoneDepot', '2020-03-07 10:48:28', 'this user Add a new Phone: imei# : 123456789874'),
+(16, 'user9', '2020-03-07 11:34:59', 'this user processed sale for Cart# : '),
+(17, 'user9', '2020-03-07 11:39:53', 'this user manualy updated stock quantity of phones ID :11'),
+(18, 'user9', '2020-03-07 11:42:23', 'this user Add a new Phone: imei# : 123456789871'),
+(19, 'user9', '2020-03-07 11:42:38', 'this user Add a new Phone: imei# : 123456789872'),
+(20, 'user9', '2020-03-07 11:43:21', 'This user process In-Store sale'),
+(21, 'smartphoneDepot', '2020-03-10 20:18:41', 'this user Add a new Phone: imei# : 123456789871'),
+(22, 'smartphoneDepot', '2020-03-10 20:19:01', 'this user Add a new Phone: imei# : 123456789873'),
+(23, 'smartphoneDepot', '2020-03-10 20:19:22', 'this user Add a new Phone: imei# : 123456789874'),
+(24, 'smartphoneDepot', '2020-03-10 20:19:39', 'this user Add a new Phone: imei# : 123456789875'),
+(25, 'smartphoneDepot', '2020-03-10 21:04:10', 'this user Add a new Phone: imei# : 123456789876'),
+(26, 'smartphoneDepot', '2020-03-10 21:04:25', 'this user Add a new Phone: imei# : 123456789878'),
+(27, 'smartphoneDepot', '2020-03-10 21:04:38', 'this user Add a new Phone: imei# : 123456789877'),
+(28, 'smartphoneDepot', '2020-03-10 21:04:53', 'this user Add a new Phone: imei# : 123456789879'),
+(29, 'smartphoneDepot', '2020-03-10 21:38:15', 'this user Add a new Phone: imei# : '),
+(30, 'smartphoneDepot', '2020-03-10 21:41:02', 'This user process In-Store sale'),
+(31, 'smartphoneDepot', '2020-03-10 21:41:34', 'this user Add a new Phone: imei# : '),
+(32, 'smartphoneDepot', '2020-03-10 21:42:54', 'this user Add a new Phone: imei# : '),
+(33, 'smartphoneDepot', '2020-03-10 21:46:20', 'this user Add a new Phone: imei# : '),
+(34, 'smartphoneDepot', '2020-03-10 21:48:26', 'this user Add a new Phone: imei# : '),
+(35, 'smartphoneDepot', '2020-03-10 22:58:27', 'this user Add a new Phone: imei# : '),
+(36, 'smartphoneDepot', '2020-03-10 23:00:44', 'this user Add a new Phone: imei# : '),
+(37, 'smartphoneDepot', '2020-03-10 23:01:39', 'this user Add a new Phone: imei# : '),
+(38, 'smartphoneDepot', '2020-03-10 23:02:18', 'this user Add a new Phone: imei# : 123456789881'),
+(39, 'smartphoneDepot', '2020-03-10 23:07:27', 'this user processed sale for Cart# : '),
+(40, 'smartphoneDepot', '2020-03-10 23:07:44', 'this user processed sale for Cart# : '),
+(41, 'smartphoneDepot', '2020-03-10 23:15:51', 'this user processed sale for Cart# : '),
+(42, 'smartphoneDepot', '2020-03-11 20:00:12', 'this user processed sale for Cart# : '),
+(43, 'smartphoneDepot', '2020-03-11 20:15:01', 'this user Add a new Phone: imei# : 123456789871'),
+(44, 'smartphoneDepot', '2020-03-11 20:29:21', 'this user manualy updated stock quantity of phones ID :11'),
+(45, 'smartphoneDepot', '2020-03-25 18:26:45', 'this user Add a new Phone: imei# : 54353454353');
 
 -- --------------------------------------------------------
 
@@ -1204,7 +1287,32 @@ INSERT INTO `sp_updatephonestock` (`idforphone`, `PhoneName`, `Description`, `Ph
 (4, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '', 98, '2020-03-06 12:35:51', 'UPDATE'),
 (5, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '', 99, '2020-03-06 12:38:47', 'UPDATE'),
 (6, 'iphone X', 'iphone X, 64 GB ', 'iphoneX', 64, 'yellow', 499.99, '13', 15, '2020-03-06 13:14:13', 'UPDATE'),
-(7, 'iphone X', 'iphone X, 128 GB', 'iphoneX', 128, 'orange', 799.99, '14', 2, '2020-03-07 00:30:59', 'UPDATE');
+(7, 'iphone X', 'iphone X, 128 GB', 'iphoneX', 128, 'orange', 799.99, '14', 2, '2020-03-07 00:30:59', 'UPDATE'),
+(8, 'iphone X', 'iphone X, 128 GB', 'iphoneX', 128, 'green', 699.99, '15', 2, '2020-03-07 10:40:48', 'UPDATE'),
+(9, 'iphone X', 'iphone X, 128 GB', 'iphoneX', 128, 'yellow', 599.99, '16', 10, '2020-03-07 10:40:58', 'UPDATE'),
+(10, 'iphone X', 'iphone X, 256 GB ', 'iphoneX', 256, 'orange', 899.99, '17', 2, '2020-03-07 10:44:15', 'UPDATE'),
+(11, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 100, '2020-03-07 10:48:07', 'UPDATE'),
+(12, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 98, '2020-03-07 10:48:28', 'UPDATE'),
+(13, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 99, '2020-03-07 11:39:53', 'UPDATE'),
+(14, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 100, '2020-03-07 11:42:23', 'UPDATE'),
+(15, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 101, '2020-03-07 11:42:38', 'UPDATE'),
+(16, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 102, '2020-03-10 20:18:40', 'UPDATE'),
+(17, 'iphone XS', 'iphone XS, 64 GB', 'iphoneXS', 64, 'orange', 799.99, '20', 1, '2020-03-10 20:19:01', 'UPDATE'),
+(18, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 103, '2020-03-10 20:19:22', 'UPDATE'),
+(19, 'iphone XS', 'iphone XS, 64 GB', 'iphoneXS', 64, 'orange', 799.99, '20', 2, '2020-03-10 20:19:39', 'UPDATE'),
+(20, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 104, '2020-03-10 21:04:10', 'UPDATE'),
+(21, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 105, '2020-03-10 21:04:25', 'UPDATE'),
+(22, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 106, '2020-03-10 21:04:38', 'UPDATE'),
+(23, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 107, '2020-03-10 21:04:53', 'UPDATE'),
+(24, 'Iphone 12', 'Iphone 12 Midnight Green, 64 GB', 'iphone12', 64, 'orange', 799.98, '31', 0, '2020-03-10 23:02:18', 'UPDATE'),
+(25, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 108, '2020-03-10 23:15:26', 'UPDATE'),
+(26, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 106, '2020-03-11 20:15:01', 'UPDATE'),
+(27, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 107, '2020-03-11 20:29:21', 'UPDATE'),
+(28, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 123, '2020-03-18 19:46:04', 'UPDATE'),
+(29, 'iphone XS', 'iphone XS, 64 GB', 'iphoneXS', 64, 'orange', 799.99, '20', 3, '2020-03-20 10:48:46', 'UPDATE'),
+(30, 'iphone X', 'iphone X, 128 GB', 'iphoneX', 128, 'yellow', 599.99, '16', 100, '2020-03-20 23:06:09', 'UPDATE'),
+(31, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 121, '2020-03-25 17:56:45', 'UPDATE'),
+(32, 'iphone X', 'iphone X, 64 GB', 'iphoneX', 64, 'orange', 699.99, '11', 119, '2020-03-25 18:41:41', 'UPDATE');
 
 --
 -- Indexes for dumped tables
@@ -1271,7 +1379,8 @@ ALTER TABLE `sp_cart`
 ALTER TABLE `sp_cartitem`
   ADD PRIMARY KEY (`idCartItem`),
   ADD KEY `basktitems_bsktid_fk` (`idCart`),
-  ADD KEY `basktitems_idprod_fk` (`idSmartPhones`);
+  ADD KEY `basktitems_idprod_fk` (`idSmartPhones`),
+  ADD KEY `phone_option_idopt_fk` (`P_OPT_ID`);
 
 --
 -- Indexes for table `sp_cartstatus`
@@ -1438,7 +1547,7 @@ ALTER TABLE `colors`
 -- AUTO_INCREMENT for table `loginadmin`
 --
 ALTER TABLE `loginadmin`
-  MODIFY `idadmin` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idadmin` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `phones`
@@ -1474,7 +1583,7 @@ ALTER TABLE `phone_storage`
 -- AUTO_INCREMENT for table `sp_cart`
 --
 ALTER TABLE `sp_cart`
-  MODIFY `idCart` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idCart` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `sp_cartitem`
@@ -1504,7 +1613,7 @@ ALTER TABLE `sp_department`
 -- AUTO_INCREMENT for table `sp_expense`
 --
 ALTER TABLE `sp_expense`
-  MODIFY `idexpense` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idexpense` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sp_invoicephone`
@@ -1525,28 +1634,34 @@ ALTER TABLE `sp_online_orderprocess_record`
   MODIFY `idonlineProcess` int(8) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `sp_phones`
+--
+ALTER TABLE `sp_phones`
+  MODIFY `idSmartPhones` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
 -- AUTO_INCREMENT for table `sp_phonespos`
 --
 ALTER TABLE `sp_phonespos`
-  MODIFY `idphonepos` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idphonepos` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `sp_phonetype`
 --
 ALTER TABLE `sp_phonetype`
-  MODIFY `idphonetype` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idphonetype` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `sp_phone_onlinesell_record`
 --
 ALTER TABLE `sp_phone_onlinesell_record`
-  MODIFY `idonlineSaleHistory` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idonlineSaleHistory` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sp_phone_sales_history`
 --
 ALTER TABLE `sp_phone_sales_history`
-  MODIFY `idSaleHistory` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `idSaleHistory` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `sp_promolist`
@@ -1558,7 +1673,7 @@ ALTER TABLE `sp_promolist`
 -- AUTO_INCREMENT for table `sp_purchasevendor`
 --
 ALTER TABLE `sp_purchasevendor`
-  MODIFY `idpurchase` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idpurchase` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sp_shopper`
@@ -1570,13 +1685,13 @@ ALTER TABLE `sp_shopper`
 -- AUTO_INCREMENT for table `sp_trans_log`
 --
 ALTER TABLE `sp_trans_log`
-  MODIFY `idlog` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idlog` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `sp_updatephonestock`
 --
 ALTER TABLE `sp_updatephonestock`
-  MODIFY `idforphone` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idforphone` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables
@@ -1608,7 +1723,8 @@ ALTER TABLE `sp_cart`
 --
 ALTER TABLE `sp_cartitem`
   ADD CONSTRAINT `basktitems_bsktid_fk` FOREIGN KEY (`idCart`) REFERENCES `sp_cart` (`idCart`),
-  ADD CONSTRAINT `basktitems_idprod_fk` FOREIGN KEY (`idSmartPhones`) REFERENCES `sp_phones` (`idSmartPhones`);
+  ADD CONSTRAINT `basktitems_idprod_fk` FOREIGN KEY (`idSmartPhones`) REFERENCES `sp_phones` (`idSmartPhones`),
+  ADD CONSTRAINT `phone_option_idopt_fk` FOREIGN KEY (`P_OPT_ID`) REFERENCES `phone_options` (`P_OPT_ID`);
 
 --
 -- Constraints for table `sp_cartstatus`
@@ -1639,19 +1755,13 @@ ALTER TABLE `sp_phones`
 -- Constraints for table `sp_phonesoption`
 --
 ALTER TABLE `sp_phonesoption`
-  ADD CONSTRAINT `prodoption_prodid_fk` FOREIGN KEY (`idSmartPhones`) REFERENCES `sp_phones` (`idSmartPhones`);
+  ADD CONSTRAINT `smartphone_idphone_fk` FOREIGN KEY (`idSmartPhones`) REFERENCES `sp_phones` (`idSmartPhones`);
 
 --
 -- Constraints for table `sp_phonesoptiondetail`
 --
 ALTER TABLE `sp_phonesoptiondetail`
   ADD CONSTRAINT `prodoptdettail_idoptcat_fk` FOREIGN KEY (`idOptionCategory`) REFERENCES `sp_phonesoptioncategory` (`idOptionCategory`);
-
---
--- Constraints for table `sp_phones_request`
---
-ALTER TABLE `sp_phones_request`
-  ADD CONSTRAINT `prodrequest_idprod_fk` FOREIGN KEY (`idSmartPhones`) REFERENCES `sp_phones` (`idSmartPhones`);
 
 --
 -- Constraints for table `sp_promolist`
