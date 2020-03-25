@@ -52,6 +52,7 @@
 		flex-wrap: wrap;
 		background-color: transparent;
 	}
+
 	.gallery div.product {
 		box-sizing: border-box;
 		margin: 40px 60px;
@@ -339,6 +340,38 @@
 	#pp ul {
 		list-style-type: none;
 		margin-left: 20px;
+	}
+
+	#registerInfo {
+		padding-top: 20px;
+		padding-left: 20px;
+		width: 500px;
+		height: 700px;
+	}
+/*Footer*/
+	footer {
+		background-color: #313131;
+		color: #FFF;
+		text-align: center;
+		margin-top: 30px;
+		width: 100%;
+		display: block;
+	}
+	
+	.col{
+		display:flex;
+		flex-direction:column;
+	}
+	.col>div{
+		flex: 1;
+		line-height:50px;
+	}
+	.frow{
+		display:flex;
+	}
+	.frow>div{
+		flex: 1;
+		line-height:40px;
 	}
 	#pp ul > li:before {
 		content: "–"; /* en dash */

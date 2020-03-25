@@ -5,12 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Privacy Policy | Smartphone Depot</title>
+	<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet" type="text/css">
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
-	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+	<link rel="icon" href="assets/favicon.png" type="image/x-icon">
 </head>
 <body>
 	<?php 
-		readfile("header.php");
+		include("components/header.php");
 	?>
 	<main>
 		<section id="pp" class="info">
@@ -23,7 +24,7 @@
 				<br><br>
 				<h4>Collection of your Personal Information</h4><br>
 				<p>In order to better provide you with products and services offered on our Site, Smartphone Depot may collect
-				personally identifiable information, such as your:
+				personally identifiable information, such as your:</p>
 				<br>
 					<ul>
 						<li>First and Last Name</li>
@@ -31,7 +32,6 @@
 						<li>E-mail Address</li>
 						<li>Phone Number</li>
 					</ul>
-				</p>
 				<br>
 				<p>We do not collect any personal information about you unless you voluntarily provide it to us. However, you may
 				be required to provide certain personal information to us when you elect to use certain products or services available 
@@ -113,32 +113,32 @@
 				modified Privacy Policy; and (b) agreement to abide and be bound by that Policy.</p><br><br>
 				<h4> Contact Information</h4><br>
 				<p>Smartphone Depot welcomes your questions or comments regarding this Statement of Privacy. If you believe that Smartphone 
-				Depot has not adhered to this Statement, please contact Smartphone Depot at:
+				Depot has not adhered to this Statement, please contact Smartphone Depot at:</p>
+				<br><br>
+				<address>
+					Smartphone Depot Inc<br>
+					2735 Hartland Rd #303<br>
+					Falls Church, Virginia 22043
 					<br><br>
-					<address>
-						Smartphone Depot Inc<br>
-						2735 Hartland Rd #303<br>
-						Falls Church, Virginia 22043
-						<br><br>
-						Email Address:<br>
-						<a href="mailto:info@smartphone-depot.com">info@smartphone-depot.com</a>
-						<br><br>
-						Telephone number:<br>
-						<a href="tel:15715294022">+1 (571) 529-4022</a>
-						<br><br>
-						Effective as of January 29, 2020
-					</address>
-				</p>
+					Email Address:<br>
+					<a href="mailto:info@smartphone-depot.com">info@smartphone-depot.com</a>
+					<br><br>
+					Telephone Number:<br>
+					<a href="tel:15715294022">+1 (571) 529-4022</a>
+					<br><br>
+					Effective as of January 29, 2020
+				</address>
 			</article>
 		</section>
 	</main>
+	<!--Footer-->
 	<?php 
-		readfile("footer.html");
+		readfile("components/footer.html");
 	?>
-	<script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
-	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="js/script.js"></script>
-	<script>
-	</script>
+	
+	<!--Scripts-->
+	<?php 
+		readfile("js/scripts.html");
+	?>
 </body>
 </html>
