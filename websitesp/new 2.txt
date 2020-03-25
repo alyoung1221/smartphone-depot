@@ -1,0 +1,59 @@
+<?php
+session_start();
+	require_once("spwebsite/users/config.php");	
+	
+	if (mysqli_query($link, "SELECT * FROM PHONES")) {				
+?>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Inventory | Smartphone Depot</title>
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+</head>
+<body>
+  	<!--Header-->
+		<?php require 'header1.php';?>
+	<!--Main-->
+		<main>
+			
+		</main>
+	<?php 
+		readfile("footer.html");
+	?>
+	<script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
+	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<script src="js/script.js"></script>
+	<script>
+		$("nav a:nth-of-type(2)").addClass("active");
+		
+		var timeout = null; 
+
+		$("#isearch").keyup(function() {
+			clearTimeout(timeout);
+			timeout = setTimeout(search, 500);
+			$("#clear").css("color", "#808080");
+		});
+		
+		$("#isearch").on("input", function() {
+			if ($("#isearch").val() === "") {
+				displayTable();
+			}
+		});
+		
+		for (var i = 0; i < $(".fa-sort").length; i++) {
+			handleClick(i); 
+			
+			function handleClick(index) {
+				$(".fa-sort").eq(index).click(
+					function() {sort(index);
+				});
+			}
+		}
+	</script>
+</body>
+</html>
