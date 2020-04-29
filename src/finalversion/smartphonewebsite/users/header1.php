@@ -15,7 +15,7 @@
 					<a href="../users/wholesale1.php">Wholesale</a>
 					<a href="../users/about-us1.php">About Us</a>
 					<a href="../users/contact-us1.php">Contact Us</a>
-					<a href="../users/products.php">Products</a>
+					<a href="../users/products1.php">Products</a>
 					<input type="search" id="search" placeholder="Search..." required title="Search website">										
 				</div>	
 				<div id="iconbar">

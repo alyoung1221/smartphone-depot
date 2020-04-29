@@ -21,11 +21,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <body>
 	<?php require 'header.php';?>
 	
-		<h2 style='color:red;'> <b><?php  echo "Hello, ", htmlspecialchars($_SESSION["idcart"]); ?></b></h2>
-		<h2 style='color:red;'> <b><?php  echo "Hello, ", htmlspecialchars($_SESSION["state"]); ?></b></h2>
+		<h2 style='color:red;'> <b><?php // echo "Hello, ", htmlspecialchars($_SESSION["idcart"]); ?></b></h2>
+		<h2 style='color:red;'> <b><?php // echo "Hello, ", htmlspecialchars($_SESSION["state"]); ?></b></h2>
 		<?php  
 		$idcarted = htmlspecialchars($_SESSION["idcart"]);
-		echo "Hello, ", $idcarted; ?>
+		//echo "Hello, ", $idcarted; ?>
 	<main>
 	 <a href="resetpassword.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>

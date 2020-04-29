@@ -28,7 +28,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page; // calculate
 
 // set page title
 $page_title="Products";
-require 'header.php';
+require 'header1.php';
 // include page header HTML
 //include_once 'layout_header.php';
 include 'cartheader_layout.php';
@@ -49,11 +49,11 @@ $num = $stmt->rowCount();
 // if products retrieved were more than zero
 if($num>0){
     // needed for paging
-    $page_url="products.php?";
+    $page_url="products1.php?";
     $total_rows=$product->count();
  
     // show products
-    include_once "read_products_template.php";
+    include_once "read_products_template1.php";
 	 
  
 }

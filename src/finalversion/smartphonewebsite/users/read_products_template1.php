@@ -14,7 +14,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 		echo "<div class='product-id display-none'>{$price}</div>";
 		echo "<div class='product-id display-none'>{$storageGB}</div>";
 		//echo "<div class='product-id display-none'>{$quantity}</div>";
-        echo "<a href='product.php?id={$idSmartPhones}&price ={$price}' class='product-link'>";
+        echo "<a href='product1.php?id={$idSmartPhones}&price ={$price}' class='product-link'>";
 			
             // select and show first product image
             $product_image->idSmartPhones=$idSmartPhones;

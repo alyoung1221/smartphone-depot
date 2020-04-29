@@ -96,7 +96,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 							  //echo "Hello, ", htmlspecialchars($_SESSION["idCart"]);
 							@mysqli_close($connection);
 						// Redirect user to welcome page
-                            header("location: products.php");
+                            header("location: products1.php");
  //=================================
 							
 							//==================================================
@@ -149,6 +149,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						<input type="password" name="password" required><br><br>
 						<button type="submit" name="login">Log In</button>
 					</fieldset>
+					<p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
 				</form>
 				<form method="post" id="register">
 					<fieldset>

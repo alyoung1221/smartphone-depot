@@ -26,8 +26,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
  $idcarts = htmlspecialchars($_SESSION["idcart"]);
  //=================================
  
- if (!@mysqli_query($connection, "insert into sp_cartitem (idcartitem,P_OPT_ID,idsmartphones,storageGB, price, quantity,idCart)
-			values(null,2,$id,$storageGB,$price,$quantity,$idcarts)")) {
+ if (!@mysqli_query($connection, "insert into sp_cartitem (idcartitem,P_OPT_ID,idsmartphones,color,storageGB, price, quantity,idCart)
+			values(null,2,$id,'black',$storageGB,$price,$quantity,$idcarts)")) {
 			
 		
 	} else {

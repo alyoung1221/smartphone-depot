@@ -18,7 +18,7 @@ session_destroy();
 // set page title
 $page_title="Thank You For Shopping At SmartPhone Depot! See You Again.";
  
-require 'header.php';
+require 'header1.php';
 // include page header HTML
 //include_once 'layout_header.php';
 include 'cartheader_layout.php';
