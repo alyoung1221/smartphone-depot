@@ -1,6 +1,5 @@
 ﻿<?php 
-	if (!empty($_GET['id']) && !empty($_GET['model'])) {
-		$id = $_GET['id'];
+	if (!empty($_GET['model']) && !is_numeric($_GET['model'])) {
 		$model = $_GET['model'];
 	}
 	else {
@@ -16,9 +15,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $model;?> | Smartphone Depot</title>
-	<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet" type="text/css">
-	<link href="/css/styles.css" rel="stylesheet" type="text/css">
-	<link type="text/css" rel="stylesheet" href="css/lightslider.css"> 
+	<link href="/css/styles.css" rel="stylesheet" type="text/css"> 
 	<link rel="icon" href="/assets/favicon.png" type="image/x-icon">
 	<!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -33,7 +30,7 @@
 				text-align: right;
 				margin-left: 200px;
 			}
-			#product #zoom {
+			#product .zoom {
 				width: 220px;
 				height: 380px;
 			}
@@ -50,11 +47,11 @@
 				align-items: center;
 				justify-content: center;
 			}
-			.flex-container {
+			[name="product"] .flex-container {
 				display: block;
 			}
 			.product-info {
-				margin-top: 70px;
+				margin-top: 50px;
 				margin-left: 0;
 			}
 			.zoom {
@@ -74,7 +71,7 @@
 			<section>
 				<h1 tabindex="0"><?php echo $model;?></h1>	
 				<span class="mobile"><br></span>
-				<form name="product" method="post" action="<?php echo $_SERVER['PHP_SELF']?>" class="product" data-id="<?php echo $id;?>">
+				<form name="product" method="post" action="<?php echo $_SERVER['PHP_SELF']?>" data-model="<?php echo str_replace(" ", "%20", $model);?>">
 				</form>
 			</section>
 		</main>
@@ -88,10 +85,16 @@
 			readfile("js/scripts.html");
 		?>
 		<script>
-			$("nav li:nth-child(2) a").addClass("active");
-			
-			var url = "components/modal.php?id=" + $(".product").eq(0).attr("data-id") + "&component=product";
-			$(".product").load(url);
+			$(".menu-item:first-of-type").addClass("active");
+			$(".submenu-item:first-of-type > a").addClass("active");
+			$(".subdropdown-item").each(function(index) {
+				if ($(this).text().trim() == $("h1").html()) {
+					$(this).find("a").addClass("active");
+				}
+			});
+			//$(".subdropdown-item:nth-of-type(3) > a").addClass("active");
+			var url = "/components/modal?model=" + $("[name='product']").eq(0).attr("data-model") + "&component=product";
+			$("[name='product']").eq(0).load(url);
 		</script>
   </body>
 </html>
