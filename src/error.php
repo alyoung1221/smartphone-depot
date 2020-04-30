@@ -1,3 +1,4 @@
+#test
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
 	<main class="error">
 		<h1>Page not found</h1>
 		<br>
-		<h2>Oops! That page canâ€™t be found.</h2>
+		<h2>Oops! That page can’t be found.</h2>
 		<br>
 		<p>It looks like nothing was found at this location. Try using the search box below:</p>
 		<br><br>
